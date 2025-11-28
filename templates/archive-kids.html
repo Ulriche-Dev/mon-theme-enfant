@@ -1,0 +1,47 @@
+<!-- wp:template-part {"slug":"header","theme":"mon-theme-enfant","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"blockGap":"0","padding":{"top":"3rem","bottom":"3rem"}},"layout":{"type":"constrained","contentSize":"1240px"}} -->
+<main class="wp-block-group kids-main-block" style="min-height:80vh; background:#fffde7;">
+
+    <!-- HEADER SPÉCIAL KIDS -->
+    <header class="kids-header" style="background:#fde047; border-radius:22px; text-align:center; padding:2.8rem 1rem 2rem 1rem; margin-bottom:2rem;">
+        <h1 style="font-family:'Comic Sans MS', 'Poppins', cursive; font-size:2.6rem; color:#a21caf; letter-spacing:2px; font-weight:900;">
+            Espace Kids 👶
+        </h1>
+        <p style="font-size:1.18rem; color:#1e293b; font-family:'Comic Sans MS','Poppins',cursive;">
+            Découvre l’actualité en t’amusant !
+        </p>
+    </header>
+
+    <!-- Titre de la catégorie (optionnel doublon, mais utile si tu veux afficher l'intitulé auto WP aussi) -->
+    <!-- wp:query-title {"type":"archive","style":{"typography":{"fontSize":"2.1rem","fontWeight":"700"},"color":{"text":"#a21caf"},"spacing":{"margin":{"bottom":"2rem"}}}} /-->
+
+    <!-- GRILLE D'ARTICLES EN MODE KIDS -->
+    <div class="archive-cards-wrap">
+        <!-- wp:query {"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","category":"kids","inherit":true},"displayLayout":{"type":"flex","columns":3}} -->
+        <div class="wp-block-query kids-archive-grid">
+            <!-- wp:post-template -->
+                <div class="wp-block-group kids-bento-card has-shadow">
+                    <!-- wp:post-featured-image {"isLink":true,"height":"200px","className":"kids-img"} /-->
+                    <div class="kids-card-content" style="padding:1.35rem 1rem;">
+                        <!-- wp:post-title {"isLink":true,"level":3,"style":{"typography":{"fontSize":"1.1rem","fontWeight":"900","fontFamily":"Comic Sans MS, Poppins, cursive"},"color":{"text":"#ca8a04"}}} /-->
+                        <!-- wp:post-date {"fontSize":"small","style":{"color":{"text":"#facc15"},"typography":{"fontFamily":"Comic Sans MS, Poppins, cursive"}}} /-->
+                    </div>
+                </div>
+            <!-- /wp:post-template -->
+
+            <!-- PAGINATION -->
+            <!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"}} -->
+                <!-- wp:query-pagination-previous /-->
+                <!-- wp:query-pagination-numbers /-->
+                <!-- wp:query-pagination-next /-->
+            <!-- /wp:query-pagination -->
+        </div>
+        <!-- /wp:query -->
+    </div>
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","theme":"mon-theme-enfant","tagName":"footer"} /-->
+

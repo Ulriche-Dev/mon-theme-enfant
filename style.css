@@ -15,14 +15,25 @@ Description:  Version Finale (Correction Fond Noir & Liens)
     --wp--preset--color--gray-light: #e2e8f0;
     --wp--preset--shadow--soft: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
 }
-
+.wp-site-blocks,
+header.wp-block-template-part,
+header.wp-block-group.abd-header {
+  overflow: visible !important;
+}
 /* 2. HEADER STICKY */
 .abd-header {
-    position: sticky; top: 0; z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.85); /* Opacité légèrement réduite pour un flou plus visible */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--wp--preset--color--gray-light);
-    width: 100%; padding: 1rem 0 0.5rem 0;
+    width: 100%;
+    padding: 1rem 0 0.5rem 0;
+    transition: background-color 0.3s;
+    /* Optionnel : un peu d’ombre pour mieux détacher le header */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 .abd-logo-container { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--wp--preset--color--contrast); }
 .abd-logo-icon { width: 32px; height: 32px; background: linear-gradient(to top right, #f59e0b, #ea580c); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px; }
@@ -106,3 +117,203 @@ Description:  Version Finale (Correction Fond Noir & Liens)
     margin-top: 4rem; 
 }
 .btn-kids { background-color: var(--wp--preset--color--kids-primary) !important; color: white !important; padding: 1rem 2rem; border-radius: 12px; font-weight: bold; text-decoration: none; display: inline-block; }
+
+/* FORCE le sticky peu importe les conteneurs */
+header.wp-block-group.abd-header,
+header.wp-block-template-part,
+.wp-site-blocks > header.wp-block-template-part {
+  position: sticky !important;
+  top: 0;
+  z-index: 1000 !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.92) !important;
+  width: 100vw !important;
+  margin-left: calc(-1 * (100vw - 100%) / 2) !important; /* Pour déborder les max-width WordPress si besoin */
+}
+
+.category-archive-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.2rem;
+}
+@media (max-width: 992px) {
+    .category-archive-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 600px) {
+    .category-archive-grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+    }
+}
+
+/* Cartes catégorie */
+.archive-cards-wrap {
+  max-width: 3000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.category-archive-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.4rem;
+  width: 100%;
+  min-width: 0;
+}
+@media (max-width: 992px) {
+  .category-archive-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 700px) {
+  .archive-cards-wrap { padding-left: 0.5rem; padding-right: 0.5rem; }
+  .category-archive-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
+.bento-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 32px -8px #64748b22;
+  transition: box-shadow 0.2s, transform 0.2s;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+}
+.bento-card img, .bento-card .wp-block-post-featured-image img {
+  border-radius: 16px 16px 0 0 !important;
+  object-fit: cover;
+  width: 100%;
+  min-height: 200px;
+  max-height: 250px;
+}
+.bento-card:hover {
+  box-shadow: 0 14px 38px -10px #6366f146;
+  transform: translateY(-5px) scale(1.02);
+  z-index: 10;
+}
+.wp-block-query-pagination {
+  margin-top: 3rem !important;
+}
+.wp-block-query-title {
+  text-align: center !important;
+}
+
+.single-main-block {
+    width: 100vw !important;
+    background: #f8fafc;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.single-article-content {
+    background: white;
+    margin: 0 auto !important;
+    border-radius: 18px;
+    padding: 2.2rem 2vw;
+    box-shadow: 0 8px 32px -10px #cbd5e146;
+    max-width: 800px;
+}
+.related-articles-block .related-grid {
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+}
+.bento-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px -6px #64748b22;
+    overflow: hidden;
+    transition: box-shadow 0.15s, transform 0.15s;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+}
+.bento-card:hover {
+    box-shadow: 0 10px 38px -16px #64748b44;
+    transform: translateY(-3px) scale(1.01);
+}
+@media (max-width: 900px) {
+    .related-articles-block .related-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 640px) {
+    .related-articles-block .related-grid {
+        grid-template-columns: 1fr;
+    }
+.single-article-content {
+        padding: 1.1rem 2vw;
+    }
+}
+
+
+.kids-main-block {
+    background: #fffde7 !important;
+    font-family: 'Comic Sans MS', 'Poppins', cursive, sans-serif;
+}
+.kids-header {
+    background: #fde047 !important;
+    border-radius: 22px;
+    text-align: center;
+    font-family: 'Comic Sans MS', 'Poppins', cursive, sans-serif;
+    margin-bottom: 2rem;
+    box-shadow: 0 6px 32px -16px #fde04780;
+}
+.kids-archive-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.1rem;
+    width: 100%;
+    min-width: 0;
+    font-family: 'Comic Sans MS', 'Poppins', cursive, sans-serif;
+}
+@media (max-width: 900px) {
+    .kids-archive-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 700px) {
+    .kids-archive-grid { grid-template-columns: 1fr; }
+}
+.kids-bento-card {
+    background: #fde047;
+    border-radius: 17px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px -6px #facc15cc;
+    transition: box-shadow 0.18s, transform 0.18s;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+    border: 2.5px solid #ca8a04;
+    font-family: 'Comic Sans MS', 'Poppins', cursive, sans-serif;
+}
+.kids-bento-card:hover {
+    box-shadow: 0 12px 32px -10px #fbbf24bd;
+    transform: translateY(-4px) scale(1.027);
+    z-index: 3;
+}
+.kids-img img, .kids-bento-card img {
+    border-radius: 16px 16px 0 0 !important;
+    object-fit: cover;
+    width: 100%;
+    min-height: 130px;
+    max-height: 200px;
+}
+.kids-card-content {
+    padding: 1rem 1.2rem;
+    font-family: 'Comic Sans MS', 'Poppins', cursive, sans-serif;
+    background: #fef9c3;
+    border-radius: 0 0 16px 16px;
+}
+.kids-card-content h3, .kids-card-content .wp-block-post-title {
+    font-family: 'Comic Sans MS', 'Poppins', cursive;
+    color: #a21caf !important;
+}
