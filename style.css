@@ -1,0 +1,108 @@
+/*
+Theme Name:   Mon Theme Enfant
+Description:  Version Finale (Correction Fond Noir & Liens)
+*/
+
+/* 1. VARIABLES */
+:root {
+    --wp--preset--color--base: #f8fafc;
+    --wp--preset--color--contrast: #0f172a;
+    --wp--preset--color--accent: #f59e0b;
+    --wp--preset--color--teal: #0d9488;
+    --wp--preset--color--terra: #e11d48;
+    --wp--preset--color--kids-bg: #fde047;
+    --wp--preset--color--kids-primary: #9333ea;
+    --wp--preset--color--gray-light: #e2e8f0;
+    --wp--preset--shadow--soft: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. HEADER STICKY */
+.abd-header {
+    position: sticky; top: 0; z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--wp--preset--color--gray-light);
+    width: 100%; padding: 1rem 0 0.5rem 0;
+}
+.abd-logo-container { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--wp--preset--color--contrast); }
+.abd-logo-icon { width: 32px; height: 32px; background: linear-gradient(to top right, #f59e0b, #ea580c); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px; }
+
+/* NAV */
+.abd-nav-scroll { overflow-x: auto; white-space: nowrap; padding-bottom: 0.5rem; margin-top: 0.5rem; -ms-overflow-style: none; scrollbar-width: none; }
+.abd-nav-scroll::-webkit-scrollbar { display: none; }
+.abd-nav-list { display: flex; align-items: center; gap: 0.8rem; list-style: none; padding: 0; margin: 0; }
+.abd-nav-link { text-decoration: none; padding: 0.4rem 1rem; border-radius: 99px; border: 1px solid var(--wp--preset--color--gray-light); color: #64748b; font-size: 0.85rem; font-weight: 600; background: white; transition: all 0.2s; }
+.abd-nav-link:hover, .abd-nav-link.active { background: var(--wp--preset--color--contrast); color: white; border-color: var(--wp--preset--color--contrast); }
+.abd-nav-link.kids-btn { background: #f3e8ff; color: #9333ea; border-color: #d8b4fe; font-weight: 800; display: flex; align-items: center; gap: 6px; }
+
+/* 3. GRILLE BENTO */
+.complex-bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 8rem;
+}
+
+@media (min-width: 1024px) {
+    .complex-bento-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 250px 250px 200px; 
+    }
+    .area-featured { grid-column: span 2; grid-row: span 2; }
+    .area-short    { grid-column: span 1; grid-row: span 2; }
+    .area-stat-1   { grid-column: span 1; grid-row: span 1; }
+    .area-stat-2   { grid-column: span 1; grid-row: span 1; }
+    .area-video    { grid-column: span 2; grid-row: span 1; }
+    .area-small-1  { grid-column: span 1; grid-row: span 1; }
+    .area-small-2  { grid-column: span 1; grid-row: span 1; }
+}
+
+/* 4. CARTES & IMAGE FILL */
+.bento-card {
+    border-radius: 16px !important;
+    overflow: hidden;
+    position: relative;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+}
+.bento-card:hover { transform: translateY(-4px); box-shadow: var(--wp--preset--shadow--soft); z-index: 5; }
+
+/* CORRECTION : Fond noir par défaut pour les zones visuelles */
+.area-featured, .area-short, .area-video {
+    background-color: #0f172a !important; /* Slate 900 */
+}
+
+/* FORCE IMAGE FILL */
+.bento-card .wp-block-query,
+.bento-card .wp-block-post-template,
+.bento-card .wp-block-group,
+.bento-card figure.wp-block-post-featured-image {
+    height: 100% !important;
+    margin: 0 !important;
+    display: block !important;
+}
+
+.bento-card img { 
+    width: 100% !important; 
+    height: 100% !important; 
+    object-fit: cover !important; 
+    display: block !important;
+    transition: transform 0.5s ease;
+}
+.bento-card:hover img { transform: scale(1.05); }
+
+.card-overlay { background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.1) 60%, transparent 100%); position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+.card-content { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1.5rem; z-index: 3; }
+.card-stat { display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; border: 1px solid var(--wp--preset--color--gray-light); background-color: white !important; }
+
+/* 5. SECTION KIDS */
+.bg-kids-pattern {
+    background-color: var(--wp--preset--color--kids-bg) !important;
+    background-image: radial-gradient(#fff 2px, transparent 2px);
+    background-size: 20px 20px;
+    margin-top: 4rem; 
+}
+.btn-kids { background-color: var(--wp--preset--color--kids-primary) !important; color: white !important; padding: 1rem 2rem; border-radius: 12px; font-weight: bold; text-decoration: none; display: inline-block; }

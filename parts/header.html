@@ -1,0 +1,66 @@
+<!-- wp:group {"tagName":"header","className":"abd-header","layout":{"type":"constrained","contentSize":"1280px"}} -->
+<header class="wp-block-group abd-header">
+    
+    <!-- LIGNE 1 : LOGO & ACTIONS -->
+    <!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between","alignItems":"center","flexWrap":"nowrap"}} -->
+    <div class="wp-block-group">
+        
+        <!-- LOGO -->
+        <!-- wp:html -->
+        <a href="/" class="abd-logo-container">
+            <div class="abd-logo-icon">
+                <!-- Icône -->
+                <span>📊</span>
+            </div>
+            <span style="font-size: 1.2rem; font-weight: 700; letter-spacing: -0.5px;">
+                African<span style="color: #f59e0b;">BigData</span>
+            </span>
+        </a>
+        <!-- /wp:html -->
+
+        <!-- ACTIONS -->
+        <!-- wp:group {"layout":{"type":"flex","alignItems":"center"}} -->
+        <div class="wp-block-group">
+            <div class="hide-mobile">
+               <!-- wp:buttons -->
+                <div class="wp-block-buttons">
+                    <!-- wp:button {"backgroundColor":"contrast","textColor":"white","style":{"border":{"radius":"99px"},"spacing":{"padding":{"top":"0.4rem","bottom":"0.4rem","left":"1.2rem","right":"1.2rem"}}}} -->
+                    <div class="wp-block-button"><a class="wp-block-button__link has-white-color has-contrast-background-color has-text-color has-background" style="border-radius:99px;padding-top:0.4rem;padding-right:1.2rem;padding-bottom:0.4rem;padding-left:1.2rem">S'abonner</a></div>
+                    <!-- /wp:button -->
+                </div>
+                <!-- /wp:buttons --> 
+            </div>
+        </div>
+        <!-- /wp:group -->
+
+    </div>
+    <!-- /wp:group -->
+
+    <!-- LIGNE 2 : NAVIGATION -->
+    <!-- wp:html -->
+    <nav class="abd-nav-scroll">
+        <ul class="abd-nav-list">
+            <!-- Bouton KIDS -->
+            <!-- VÉRIFIEZ QUE LE SLUG EST BIEN 'kids' OU 'junior' DANS VOS CATÉGORIES -->
+            <li>
+                <a href="/category/kids" class="abd-nav-link kids-btn">
+                    <span>👶</span> KIDS
+                </a>
+            </li>
+            
+            <li style="width:1px; height:24px; background:#e2e8f0; margin:0 4px;"></li>
+
+            <!-- VÉRIFIEZ CES LIENS AVEC VOS SLUGS RÉELS -->
+            <li><a href="/" class="abd-nav-link active">Tout voir</a></li>
+            <li><a href="/category/economie" class="abd-nav-link">Économie</a></li>
+            <li><a href="/category/tech" class="abd-nav-link">Tech</a></li>
+            <li><a href="/category/sport" class="abd-nav-link">Sport</a></li>
+            <li><a href="/category/ecologie" class="abd-nav-link">Écologie</a></li>
+            <li><a href="/category/societe" class="abd-nav-link">Société</a></li>
+            <li><a href="/category/shorts" class="abd-nav-link">Shorts</a></li>
+        </ul>
+    </nav>
+    <!-- /wp:html -->
+
+</header>
+<!-- /wp:group -->

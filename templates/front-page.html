@@ -1,0 +1,143 @@
+<!-- wp:template-part {"slug":"header","theme":"mon-theme-enfant","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"blockGap":"0","padding":{"top":"2rem","bottom":"2rem"}}},"layout":{"type":"constrained","contentSize":"1280px"}} -->
+<main class="wp-block-group">
+
+    <!-- TITRE DE SECTION -->
+    <!-- wp:heading {"style":{"typography":{"fontSize":"2rem","fontWeight":"800"},"spacing":{"margin":{"bottom":"2rem"}}}} -->
+    <h2 class="wp-block-heading" style="font-size:2rem;font-weight:800;margin-bottom:2rem">À la une <span style="color:#f59e0b">.</span></h2>
+    <!-- /wp:heading -->
+
+    <!-- GRILLE BENTO -->
+    <!-- wp:html -->
+    <div class="complex-bento-grid">
+
+        <!-- 1. FEATURED (Tech) -->
+        <div class="bento-card area-featured">
+            <!-- wp:query {"queryId":10,"query":{"perPage":1,"postType":"post","sticky":"only"},"className":"h-full"} -->
+            <div class="wp-block-query h-full">
+                <!-- wp:post-template -->
+                <div style="position:relative; height:100%;">
+                    <!-- wp:post-featured-image {"isLink":true,"className":"object-cover"} /-->
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <span style="background:#0f172a; color:white; padding:4px 8px; border-radius:4px; font-size:11px; font-weight:bold; text-transform:uppercase; margin-bottom:8px; display:inline-block;">Tech & Innovation</span>
+                        <!-- wp:post-title {"isLink":true,"level":2,"textColor":"white","style":{"typography":{"fontSize":"1.8rem","lineHeight":"1.2"}}} /-->
+                        <div style="color:#cbd5e1; font-size:12px; margin-top:8px;">⏱ 5 min de lecture</div>
+                    </div>
+                </div>
+                <!-- /wp:post-template -->
+            </div>
+            <!-- /wp:query -->
+        </div>
+
+        <!-- 2. SHORT (ID 7) -->
+        <div class="bento-card area-short">
+            <!-- wp:query {"queryId":11,"query":{"perPage":1,"postType":"post","sticky":"exclude","taxQuery":{"category":[7]}},"className":"h-full"} -->
+            <div class="wp-block-query h-full">
+                <!-- wp:post-template -->
+                <div style="position:relative; height:100%;">
+                    <!-- wp:post-featured-image {"isLink":true,"className":"object-cover"} /-->
+                    <div class="card-overlay"></div>
+                    <div style="position:absolute; top:1rem; right:1rem; background:rgba(255,255,255,0.2); backdrop-filter:blur(5px); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; z-index:10;">▶</div>
+                    <div class="card-content">
+                        <span style="background:#e11d48; color:white; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:bold; margin-bottom:6px; display:inline-block;">SHORT</span>
+                        <!-- wp:post-title {"isLink":true,"level":3,"textColor":"white","style":{"typography":{"fontSize":"1.1rem"}}} /-->
+                    </div>
+                </div>
+                <!-- /wp:post-template -->
+            </div>
+            <!-- /wp:query -->
+        </div>
+
+        <!-- 3. STAT 1 -->
+        <div class="bento-card area-stat-1 card-stat">
+            <!-- wp:query {"queryId":12,"query":{"perPage":1,"offset":0,"postType":"post","sticky":"exclude"}} -->
+            <div class="wp-block-query">
+                <!-- wp:post-template -->
+                <div style="color:#3b82f6; font-size:24px; margin-bottom:0.5rem;">↗</div>
+                <!-- wp:post-title {"isLink":true,"level":4,"style":{"typography":{"fontSize":"1rem","fontWeight":"700"}},"textColor":"contrast"} /-->
+                <!-- /wp:post-template -->
+            </div>
+            <!-- /wp:query -->
+        </div>
+
+        <!-- 4. STAT 2 -->
+        <div class="bento-card area-stat-2 card-stat" style="background:#ecfdf5; border:none;">
+             <!-- wp:query {"queryId":13,"query":{"perPage":1,"offset":1,"postType":"post","sticky":"exclude"}} -->
+             <div class="wp-block-query">
+                <!-- wp:post-template -->
+                <div style="color:#059669; font-size:24px; margin-bottom:0.5rem;">🌱</div>
+                <!-- wp:post-title {"isLink":true,"level":4,"style":{"typography":{"fontSize":"1rem","fontWeight":"700"}},"textColor":"contrast"} /-->
+                <!-- /wp:post-template -->
+            </div>
+            <!-- /wp:query -->
+        </div>
+
+        <!-- 5. VIDEO -->
+        <div class="bento-card area-video">
+             <!-- wp:query {"queryId":14,"query":{"perPage":1,"offset":2,"postType":"post","sticky":"exclude"},"className":"h-full"} -->
+             <div class="wp-block-query h-full">
+                <!-- wp:post-template -->
+                <div style="position:relative; height:100%;">
+                    <!-- wp:post-featured-image {"isLink":true,"className":"object-cover"} /-->
+                    <div class="card-overlay"></div>
+                    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; z-index:10;">
+                        <div style="background:rgba(0,0,0,0.4); width:48px; height:48px; border-radius:50%; border:2px solid white; display:flex; align-items:center; justify-content:center; color:white;">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <!-- wp:post-title {"isLink":true,"level":3,"textColor":"white"} /-->
+                    </div>
+                </div>
+                <!-- /wp:post-template -->
+            </div>
+            <!-- /wp:query -->
+        </div>
+
+        <!-- 6. PETIT ARTICLE 1 -->
+        <div class="bento-card area-small-1 card-stat">
+            <!-- wp:query {"queryId":15,"query":{"perPage":1,"offset":3,"postType":"post","sticky":"exclude"}} -->
+            <div class="wp-block-query">
+                <!-- wp:post-template -->
+                <span style="color:#9333ea; font-size:10px; font-weight:bold; text-transform:uppercase;">Info</span>
+                <!-- wp:post-title {"isLink":true,"level":4,"style":{"typography":{"fontSize":"0.95rem","fontWeight":"700"}},"textColor":"contrast"} /-->
+                <p style="color:#94a3b8; font-size:11px; margin-top:0.5rem;">Il y a 2h</p>
+                <!-- /wp:post-template -->
+            </div>
+            <!-- /wp:query -->
+        </div>
+
+        <!-- 7. PETIT ARTICLE 2 -->
+        <div class="bento-card area-small-2" style="background:#0f172a; padding:1.5rem; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+            <p style="color:#64748b; font-weight:800; font-size:1.2rem; line-height:1.1; margin-bottom:0.5rem;">DATA VIZ</p>
+            <p style="color:white; font-size:0.8rem;">Visualiser les flux migratoires</p>
+        </div>
+
+    </div>
+    <!-- /wp:html -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- SECTION KIDS (ESPACE SUPÉRIEUR RENFORCÉ) -->
+<!-- wp:group {"align":"full","className":"bg-kids-pattern","style":{"spacing":{"padding":{"top":"5rem","bottom":"5rem"}}}} -->
+<div class="wp-block-group alignfull bg-kids-pattern" style="padding-top:5rem;padding-bottom:5rem; margin-top:6rem;">
+    <!-- wp:group {"layout":{"contentSize":"1000px"}} -->
+    <div class="wp-block-group">
+        <!-- wp:html -->
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem;">
+            <div style="flex: 1 1 400px;">
+                <span style="background:white; color:#9333ea; padding:4px 12px; border-radius:99px; font-weight:bold; font-size:14px; margin-bottom:1rem; display:inline-block;">ESPACE JUNIOR 🚀</span>
+                <h2 style="font-size: 3rem; line-height: 1.1; margin: 1rem 0; color: #0f172a;">Comprendre le monde<br>par les chiffres.</h2>
+            </div>
+            <div>
+                <a href="/category/kids" class="btn-kids">Accéder à l'espace Kids</a>
+            </div>
+        </div>
+        <!-- /wp:html -->
+    </div>
+    <!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","theme":"mon-theme-enfant","tagName":"footer"} /-->

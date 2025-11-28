@@ -1,0 +1,93 @@
+/*
+Theme Name: Mon Theme Enfant - Twenty Twenty-Four (FSE)
+Theme URI:  https://example.com
+Description: Thème enfant FSE basé sur Twenty Twenty-Four — styles globaux et finitions.
+Author: Romeo
+Template: twentytwentyfour
+Version: 1.0.0
+Text Domain: mon-theme-enfant
+*/
+
+:root{
+  --color-primary: #1a73e8;
+  --color-accent: #e91e63;
+  --color-muted: #6b7280;
+  --color-surface: #f7f7f8;
+  --max-content-width: 880px;
+}
+
+/* Titres */
+.entry-title, h1.entry-title, .post .entry-title {
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Extraits / résumé */
+.entry-summary, .post-excerpt, .wp-block-post-excerpt {
+  background: var(--color-surface);
+  border-left: 4px solid var(--color-primary);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Liens */
+a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+a:hover, a:focus {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Boutons généraux (sélecteur générique + block button) */
+button, .wp-block-button__link {
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+button:hover, .wp-block-button__link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(16,24,40,0.12);
+}
+
+/* Images (cards) */
+.entry-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 6px 20px rgba(16,24,40,0.05);
+}
+
+/* Container content width */
+.site-main, .entry-content {
+  max-width: var(--max-content-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px){
+  .entry-title {
+    font-size: 1.4rem;
+  }
+  :root{
+    --max-content-width: 92%;
+  }
+}
+@media (max-width: 480px){
+  button, .wp-block-button__link {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

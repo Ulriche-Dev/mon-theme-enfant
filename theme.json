@@ -1,0 +1,383 @@
+{
+
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+
+    "version": 2,
+
+    "settings": {
+
+        "appearanceTools": true,
+
+        "layout": {
+
+            "contentSize": "840px",
+
+            "wideSize": "1280px"
+
+        },
+
+        "color": {
+
+            "defaultPalette": false,
+
+            "palette": [
+
+                {
+
+                    "slug": "base",
+
+                    "color": "#f8fafc",
+
+                    "name": "Fond Principal (Slate 50)"
+
+                },
+
+                {
+
+                    "slug": "contrast",
+
+                    "color": "#0f172a",
+
+                    "name": "Texte Sombre (Slate 900)"
+
+                },
+
+                {
+
+                    "slug": "white",
+
+                    "color": "#ffffff",
+
+                    "name": "Blanc (Cartes)"
+
+                },
+
+                {
+
+                    "slug": "accent",
+
+                    "color": "#f59e0b",
+
+                    "name": "Or / Accent Principal"
+
+                },
+
+                {
+
+                    "slug": "teal",
+
+                    "color": "#0d9488",
+
+                    "name": "Teal (Tech/Eco)"
+
+                },
+
+                {
+
+                    "slug": "terra",
+
+                    "color": "#e11d48",
+
+                    "name": "Terra (Alertes/Shorts)"
+
+                },
+
+                {
+
+                    "slug": "kids-bg",
+
+                    "color": "#fde047",
+
+                    "name": "Kids Jaune (Fond)"
+
+                },
+
+                {
+
+                    "slug": "kids-primary",
+
+                    "color": "#9333ea",
+
+                    "name": "Kids Violet (Action)"
+
+                },
+
+                {
+
+                    "slug": "gray-light",
+
+                    "color": "#e2e8f0",
+
+                    "name": "Gris Clair (Bordures)"
+
+                }
+
+            ],
+
+            "gradients": []
+
+        },
+
+        "typography": {
+
+            "fontFamilies": [
+
+                {
+
+                    "fontFamily": "\"Inter\", sans-serif",
+
+                    "name": "Inter (Corps)",
+
+                    "slug": "body"
+
+                },
+
+                {
+
+                    "fontFamily": "\"Poppins\", sans-serif",
+
+                    "name": "Poppins (Titres)",
+
+                    "slug": "heading",
+
+                    "fontFace": [
+
+                        {
+
+                            "fontFamily": "Poppins",
+
+                            "fontWeight": "700",
+
+                            "src": [
+
+                                "file:./assets/fonts/poppins-bold.woff2"
+
+                            ]
+
+                        }
+
+                    ]
+
+                }
+
+            ]
+
+        },
+
+        "spacing": {
+
+            "spacingScale": {
+
+                "steps": 0
+
+            },
+
+            "units": [
+
+                "px",
+
+                "em",
+
+                "rem",
+
+                "vh",
+
+                "vw",
+
+                "%"
+
+            ]
+
+        },
+
+        "border": {
+
+            "radius": true,
+
+            "color": true,
+
+            "style": true,
+
+            "width": true
+
+        },
+
+        "shadow": {
+
+            "presets": [
+
+                {
+
+                    "name": "Douce (Cartes)",
+
+                    "slug": "soft",
+
+                    "shadow": "0 10px 25px -5px rgba(0, 0, 0, 0.15)"
+
+                },
+
+                {
+
+                    "name": "Kids (Pop)",
+
+                    "slug": "pop",
+
+                    "shadow": "0 10px 15px -3px rgba(147, 51, 234, 0.3)"
+
+                }
+
+            ]
+
+        }
+
+    },
+
+    "styles": {
+
+        "color": {
+
+            "background": "var(--wp--preset--color--base)",
+
+            "text": "var(--wp--preset--color--contrast)"
+
+        },
+
+        "typography": {
+
+            "fontFamily": "var(--wp--preset--font-family--body)",
+
+            "fontSize": "1rem",
+
+            "lineHeight": "1.6"
+
+        },
+
+        "elements": {
+
+            "h1": {
+
+                "typography": {
+
+                    "fontFamily": "var(--wp--preset--font-family--heading)",
+
+                    "fontWeight": "700",
+
+                    "lineHeight": "1.2"
+
+                }
+
+            },
+
+            "h2": {
+
+                "typography": {
+
+                    "fontFamily": "var(--wp--preset--font-family--heading)",
+
+                    "fontWeight": "700"
+
+                }
+
+            },
+
+            "h3": {
+
+                "typography": {
+
+                    "fontFamily": "var(--wp--preset--font-family--heading)",
+
+                    "fontWeight": "600"
+
+                }
+
+            },
+
+            "link": {
+
+                "color": {
+
+                    "text": "var(--wp--preset--color--contrast)"
+
+                },
+
+                ":hover": {
+
+                    "color": {
+
+                        "text": "var(--wp--preset--color--accent)"
+
+                    },
+
+                    "typography": {
+
+                        "textDecoration": "none"
+
+                    }
+
+                }
+
+            },
+
+            "button": {
+
+                "border": {
+
+                    "radius": "9999px"
+
+                },
+
+                "color": {
+
+                    "background": "var(--wp--preset--color--contrast)",
+
+                    "text": "var(--wp--preset--color--white)"
+
+                },
+
+                "typography": {
+
+                    "fontWeight": "600"
+
+                },
+
+                ":hover": {
+
+                    "color": {
+
+                        "background": "var(--wp--preset--color--accent)"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "blocks": {
+
+            "core/group": {
+
+                "border": {
+
+                    "radius": "16px"
+
+                }
+
+            },
+
+            "core/image": {
+
+                "border": {
+
+                    "radius": "16px"
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
