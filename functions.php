@@ -13,6 +13,47 @@ function mon_theme_enfant_styles() {
         '1.0.0'
     );
 }
+
+/**
+ * 🚀 CUSTOM POST TYPE : ESPACE KIDS
+ * Crée un univers séparé pour les contenus enfants.
+ */
+function abd_register_kids_universe() {
+    
+    // 1. Le CPT (Contenu)
+    $args = array(
+        'labels' => array(
+            'name'          => 'Espace Kids',
+            'singular_name' => 'Article Kids',
+            'add_new_item'  => 'Ajouter un article Kids',
+            'edit_item'     => 'Éditer l\'article Kids',
+        ),
+        'public'       => true,
+        'has_archive'  => true,
+        'show_in_rest' => true, // Obligatoire pour Gutenberg
+        'menu_icon'    => 'dashicons-smiley',
+        'supports'     => array('title', 'editor', 'thumbnail', 'excerpt', 'author', 'revisions'),
+        // C'est ici qu'on définit l'URL magique : [site.com/kids/mon-article](https://site.com/kids/mon-article)
+        'rewrite'      => array('slug' => 'kids', 'with_front' => false), 
+        'template'     => array(
+            array('core/pattern', array('slug' => 'mon-theme-enfant/article-kids-layout'))
+        )
+    );
+    register_post_type('kids', $args);
+
+    // 2. La Taxonomie (Catégories propres aux enfants : Sciences, Nature, etc.)
+    // On ne veut pas utiliser les catégories "Adultes" ici.
+    register_taxonomy('sujet_kids', 'kids', array(
+        'label'        => 'Sujets Kids',
+        'rewrite'      => array('slug' => 'kids-sujet'),
+        'hierarchical' => true,
+        'show_in_rest' => true,
+    ));
+}
+add_action('init', 'abd_register_kids_universe');
+
+
+
 /**
  * Génère la navigation des catégories pour le header.
  * À utiliser dans parts/header.php (ex-header.html).
