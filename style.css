@@ -132,48 +132,43 @@ header.wp-block-template-part,
   margin-left: calc(-1 * (100vw - 100%) / 2) !important; /* Pour déborder les max-width WordPress si besoin */
 }
 
-.category-archive-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.2rem;
+/* --- NOUVELLE SECTION POUR LES CATÉGORIES (Centrage et Grille) --- */
+
+/* 1. Assurez-vous que le wrapper prenne toute la largeur disponible et soit centré */
+/* Le max-width est supprimé pour laisser le <main> ou l'utilisateur le définir */
+.archive-cards-wrap {
+  /* On s'assure qu'il n'y a pas de style qui le décale */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto; 
+  padding: 0 1.5rem;
 }
+
+/* 2. Réinitialisation de la grille d'articles à 3 colonnes sur grand écran */
+.category-archive-grid {
+    /* La grille Flex/Grid de WordPress est réinitialisée par vos styles, on corrige la colonne */
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr); /* Remise à 3 colonnes comme demandé */
+    gap: 2.2rem;
+    width: 100%; /* S'assure qu'elle prend toute la place du wrapper */
+}
+
+/* 3. Media Queries ajustées pour les écrans plus petits */
 @media (max-width: 992px) {
     .category-archive-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr; /* 2 colonnes pour les tablettes */
     }
 }
-@media (max-width: 600px) {
+@media (max-width: 600px) { /* 600px est souvent le point de bascule pour les mobiles */
+    .archive-cards-wrap { padding-left: 0.5rem; padding-right: 0.5rem; }
     .category-archive-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 1 colonne pour les mobiles */
         gap: 1.4rem;
     }
 }
 
-/* Cartes catégorie */
-.archive-cards-wrap {
-  max-width: 3000px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-.category-archive-grid {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2.4rem;
-  width: 100%;
-  min-width: 0;
-}
-@media (max-width: 992px) {
-  .category-archive-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (max-width: 700px) {
-  .archive-cards-wrap { padding-left: 0.5rem; padding-right: 0.5rem; }
-  .category-archive-grid {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-  }
-}
+/* les styles de base de .bento-card  */
+
 .bento-card {
   background: #fff;
   border-radius: 16px;
