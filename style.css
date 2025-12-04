@@ -253,6 +253,7 @@ header.wp-block-template-part,
     }
 }
 
+/* Kisds nav css */
 
 .kids-main-block {
     background: #fffde7 !important;
@@ -316,4 +317,91 @@ header.wp-block-template-part,
 .kids-card-content h3, .kids-card-content .wp-block-post-title {
     font-family: 'Comic Sans MS', 'Poppins', cursive;
     color: #a21caf !important;
+}
+
+.kids-header {
+  background: #fffde7 !important;
+  font-family: 'Comic Sans MS', 'Poppins', cursive, sans-serif;
+}
+.kids-badge {
+  background: #fde047;
+  color: #a21caf;
+  border-radius: 14px;
+  padding: 5px 14px;
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 1.2px;
+  margin-left: 0.5rem;
+  display: inline-block;
+}
+.btn-exit:hover {
+  background: #facc15;
+  color: #a21caf !important;
+}
+.kids-nav-link:hover {
+  color: #f59e0b;
+}
+
+/* style du bandeau services-cta*/
+
+
+.services-b2b-cta h2 {
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 0.4rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+.services-b2b-btn:hover {
+  background: #fde047;
+  color: #a21caf;
+}
+@media (max-width:700px) {
+  .services-b2b-cta {
+    flex-direction: column;
+    padding: 1.3rem 2vw;
+    gap: 1.2rem;
+    text-align: center;
+  }
+}
+
+
+/* Styles page services */
+.service-card {
+  transition:transform 0.15s,box-shadow 0.15s;
+}
+.service-card:hover {
+  transform: translateY(-7px) scale(1.03);
+  box-shadow: 0 8px 40px -8px #ab99da55,0 2px 12px #facc1588;
+}
+@media (max-width: 800px) {
+  .services-main-block section {
+    padding: 1.5rem 0.4rem;
+  }
+  .service-card {
+    padding: 1.2rem 0.7rem;
+  }
+}
+
+.subscription-main-block section {
+  animation: fadein 0.7s;
+}
+@keyframes fadein {
+  from { opacity:0; transform:translateY(30px);}
+  to   { opacity:1; transform:translateY(0);}
+}
+
+
+/* Style page equipe*/
+.team-member {
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.team-member:hover {
+  transform: translateY(-7px) scale(1.04);
+  box-shadow: 0 8px 32px -8px #a21caf41;
+}
+@media (max-width: 750px) {
+  .team-grid {
+    grid-template-columns:1fr;
+    gap: 1.1rem 0;
+  }
 }

@@ -1,0 +1,70 @@
+<!-- wp:template-part {"slug":"header-kids","theme":"mon-theme-enfant","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"single-kids-main-block","style":{"spacing":{"blockGap":"0","padding":{"top":"3rem","bottom":"3rem"}},"layout":{"type":"constrained","contentSize":"900px"}} -->
+<main class="single-kids-main-block" style="min-height:80vh; max-width:100vw; background:var(--wp--preset--color--kids-bg);">
+
+    <!-- HEADER ARTICLE KIDS -->
+    <!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"margin":{"bottom":"2rem"}}}} -->
+    <header class="single-header" style="text-align:center; margin-bottom:2.5rem;">
+        <!-- wp:post-title {"level":1,"style":{"typography":{"fontSize":"2.2rem","fontWeight":"800"}}} /-->
+        <!-- wp:post-date {"fontSize":"medium","style":{"typography":{"color":"#64748b"}}} /-->
+    </header>
+    <!-- /wp:group -->
+
+    <!-- CONTENU CENTRALISÉ -->
+    <!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"blockGap":"1.2rem"}}} -->
+    <div class="single-article-content-kids" style="margin:0 auto; max-width:800px; background:#fef9c3; border-radius:18px; padding:2.2rem 2vw; box-shadow:0 8px 32px -10px #fde04780;">
+        <!-- wp:post-content {"layout":{"inherit":true}} /-->
+    </div>
+    <!-- /wp:group -->
+
+    <!-- ARTICLES LIÉS EN BAS (optionnel : tu peux l'enlever, ou le styliser "kids") -->
+    <!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"margin":{"top":"4rem"}}}} -->
+    <aside class="related-articles-block" style="margin:4rem auto 0; max-width:900px;">
+        <h2 style="text-align:center;color:#a21caf;font-family:'Comic Sans MS','Poppins',cursive">Articles liés</h2>
+        <div class="related-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:2rem; margin-top:2rem;">
+            <a href="#" class="bento-card" style="background:#fde047;border-radius:16px 16px 0 0; text-decoration:none;">
+                <img src="https://picsum.photos/id/56/400/220" alt="Autre article 1" style="border-radius:16px 16px 0 0; width:100%;">
+                <div class="card-content" style="padding:1rem;">
+                    <h3 style="font-family:'Comic Sans MS',cursive;font-size:1rem; font-weight:700; color:#a21caf;">Titre lié 1</h3>
+                    <p style="font-size:0.93rem; color:#ca8a04;">Court extrait ou chapeau…</p>
+                </div>
+            </a>
+            <a href="#" class="bento-card" style="background:#fde047;border-radius:16px 16px 0 0; text-decoration:none;">
+                <img src="https://picsum.photos/id/71/400/220" alt="Autre article 2" style="border-radius:16px 16px 0 0; width:100%;">
+                <div class="card-content" style="padding:1rem;">
+                    <h3 style="font-family:'Comic Sans MS',cursive;font-size:1rem; font-weight:700; color:#a21caf;">Titre lié 2</h3>
+                    <p style="font-size:0.93rem; color:#ca8a04;">Court extrait ou chapeau…</p>
+                </div>
+            </a>
+            <a href="#" class="bento-card" style="background:#fde047;border-radius:16px 16px 0 0; text-decoration:none;">
+                <img src="https://picsum.photos/id/37/400/220" alt="Autre article 3" style="border-radius:16px 16px 0 0; width:100%;">
+                <div class="card-content" style="padding:1rem;">
+                    <h3 style="font-family:'Comic Sans MS',cursive;font-size:1rem; font-weight:700; color:#a21caf;">Titre lié 3</h3>
+                    <p style="font-size:0.93rem; color:#ca8a04;">Court extrait ou chapeau…</p>
+                </div>
+            </a>
+        </div>
+    </aside>
+    <!-- /wp:group -->
+
+    <!-- BONUS SEO KIDS -->
+    <!-- wp:html -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "children",
+        "audienceEngine": "Kids Universe"
+      },
+      "isFamilyFriendly": "true"
+    }
+    </script>
+    <!-- /wp:html -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer-kids","theme":"mon-theme-enfant","tagName":"footer"} /-->
