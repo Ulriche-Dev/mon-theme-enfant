@@ -1,64 +1,72 @@
 <!-- wp:group {"style":{"spacing":{"padding":{"top":"3rem","bottom":"3rem"}}},"backgroundColor":"contrast","textColor":"gray-light","layout":{"type":"constrained"}} -->
 <div class="wp-block-group has-gray-light-color has-contrast-background-color has-text-color has-background" style="padding-top:3rem;padding-bottom:3rem">
-    
-    <!-- wp:columns {"style":{"spacing":{"blockGap":"2rem"}}} -->
-    <div class="wp-block-columns">
-        
-        <!-- COLONNE 1 -->
-        <!-- wp:column {"width":"30%"} -->
-        <div class="wp-block-column" style="flex-basis:30%">
-            <!-- wp:site-title {"style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"textColor":"white"} /-->
-            <!-- wp:paragraph {"fontSize":"small"} -->
-            <p class="has-small-font-size">La première plateforme de Data Storytelling dédiée au continent africain.</p>
-            <!-- /wp:paragraph -->
-        </div>
-        <!-- /wp:column -->
 
-        <!-- COLONNE 2 -->
-        <!-- wp:column {"width":"30%"} -->
-        <div class="wp-block-column" style="flex-basis:30%">
-             <!-- wp:heading {"level":4,"style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"textColor":"white"} -->
-            <h4 class="wp-block-heading has-white-color has-text-color" style="font-weight:700;font-style:normal">Suivez-nous</h4>
-            <!-- /wp:heading -->
-            <!-- wp:social-links {"iconColor":"gray-light","iconColorValue":"#e2e8f0","className":"is-style-logos-only"} -->
-            <ul class="wp-block-social-links is-style-logos-only has-icon-color">
-                <!-- wp:social-link {"url":"#","service":"twitter"} /-->
-                <!-- wp:social-link {"url":"#","service":"linkedin"} /-->
-            </ul>
-            <!-- /wp:social-links -->
-        </div>
-        <!-- /wp:column -->
+  <!-- wp:columns {"columns":5,"style":{"spacing":{"blockGap":"2rem"}}} -->
+  <div class="wp-block-columns" style="gap:2rem">
 
-        <!-- COLONNE 3 : Ajout de la colonne Contact -->
-        <!-- wp:column {"width":"30%"} -->
-        <div class="wp-block-column" style="flex-basis:30%">
-            <!-- wp:heading {"level":4, "style":{"typography":{"fontStyle":"normal","fontWeight":"700"}}, "textColor":"white"} -->
-            <h4 class="wp-block-heading has-white-color has-text-color" style="font-weight:700;font-style:normal">Contact</h4>
-            <!-- /wp:heading -->
-            <!-- Lien vers la page Contact -->
-            <ul class="footer-links">
-                <li>
-                    <a href="/contact/" style="color:#e2e8f0;font-weight:600;">Formulaire de contact</a>
-                </li>
-		<li><a href="/abonnement/" style="color:#e2e8f0;font-weight:600;">S’abonner à la newsletter</a></li>
-		<li><a href="/a-propos/" style="color:#e2ef80; font-weight:600;">À propos</a></li>                
-		<li><a href="/equipe/" style="color:#e2ef8f0; font-weignt:600;"></a></li>
-<!-- Ajoute ici d'autres moyens de contact si besoin-->
-            </ul>
-        </div>
-        <!-- /wp:column -->
-        
+    <!-- COLONNE 1: Logo + slogan -->
+    <div class="wp-block-column" style="flex-basis:20%">
+      <!-- wp:site-title {"style":{"typography":{"fontWeight":"700"}},"textColor":"white"} /-->
+      <p class="has-small-font-size" style="color:#64748b;">La première plateforme de Data Storytelling dédiée au continent africain.</p>
     </div>
-    <!-- /wp:columns -->
-    <!-- wp:template-part {"slug":"services-cta","theme":"mon-theme-enfant"} /--> 
-    <!-- wp:paragraph {"fontSize":"small","align":"center"} -->
-    	<div class="footer-legal-links" style="font-size:0.96rem; color:#64748b; margin-top:1.5rem; text-align:center;">
-           <a href="/mentions-legales/" style="color:#64748b; text-decoration:underline; margin-right:1.6em;">Mentions légales</a>
-          
- <a href="/confidentialite/" style="color:#64748b; text-decoration:underline;">Confidentialité</a>
-	</div>
-    <p class="has-text-align-center has-small-font-size">© 2024 AfricanBigData. Tous droits réservés.</p>
-    <!-- /wp:paragraph -->
+
+    <!-- COLONNE 2: Explorer (Catégories du front) -->
+    <div class="wp-block-column" style="flex-basis:20%">
+      <h4 class="has-white-color has-text-color" style="font-weight:700;">Explorer</h4>
+      <ul class="footer-links">
+        <li><a href="/category/economie/" style="color:#e2e8f0;">Économie</a></li>
+        <li><a href="/category/tech/" style="color:#e2e8f0;">Tech</a></li>
+        <li><a href="/category/sport/" style="color:#e2e8f0;">Sport</a></li>
+        <li><a href="/category/ecologie/" style="color:#e2e8f0;">Écologie</a></li>
+        <li><a href="/category/societe/" style="color:#e2e8f0;">Société</a></li>
+        <li><a href="/category/shorts/" style="color:#e2e8f0;">Shorts</a></li>
+        <li><a href="/kids/" style="color:#e2e8f0;">Kids</a></li>
+      </ul>
+    </div>
+
+    <!-- COLONNE 3: À propos -->
+    <div class="wp-block-column" style="flex-basis:20%">
+      <h4 class="has-white-color has-text-color" style="font-weight:700;">À propos</h4>
+      <ul class="footer-links">
+        <li><a href="/a-propos/" style="color:#e2e8f0;">À propos</a></li>
+        <li><a href="/equipe/" style="color:#e2e8f0;">Notre équipe</a></li>
+        <li><a href="/carrieres/" style="color:#e2e8f0;">Carrières</a></li>
+      </ul>
+    </div>
+
+    <!-- COLONNE 4: Contact -->
+    <div class="wp-block-column" style="flex-basis:20%">
+      <h4 class="has-white-color has-text-color" style="font-weight:700;">Contact</h4>
+      <ul class="footer-links">
+        <li><a href="/contact/" style="color:#e2e8f0;">Formulaire de contact</a></li>
+        <li><a href="/abonnement/" style="color:#e2e8f0;">S’abonner à la newsletter</a></li>
+      </ul>
+    </div>
+    
+    <!-- COLONNE 5: Suivez-nous -->
+    <div class="wp-block-column" style="flex-basis:20%">
+      <h4 class="has-white-color has-text-color" style="font-weight:700;">Suivez-nous</h4>
+      <ul class="wp-block-social-links is-style-logos-only has-icon-color" style="display:flex;gap:1rem;">
+        <!-- wp:social-link {"url":"https://twitter.com/","service":"twitter"} /-->
+        <!-- wp:social-link {"url":"https://linkedin.com/","service":"linkedin"} /-->
+        <!-- wp:social-link {"url":"https://instagram.com/","service":"instagram"} /-->
+        <!-- wp:social-link {"url":"https://youtube.com/","service":"youtube"} /-->
+      </ul>
+    </div>
+  </div>
+  <!-- /wp:columns -->
+
+  <!-- Bas du footer: droits et liens légaux -->
+  <div class="wp-block-columns" style="padding-top:2.5rem;">
+    <div class="wp-block-column" style="text-align:left;">
+      <p class="has-small-font-size" style="margin:0;">© 2024 AfricanBigData. Tous droits réservés.</p>
+    </div>
+    <div class="wp-block-column" style="text-align:right;">
+      <a href="/mentions-legales/" style="color:#64748b; text-decoration:underline; margin-right:1.6em;">Mentions légales</a>
+      <a href="/confidentialite/" style="color:#64748b; text-decoration:underline;">Confidentialité</a>
+    </div>
+  </div>
+  <!-- /wp:columns -->
 
 </div>
 <!-- /wp:group -->

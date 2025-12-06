@@ -56,30 +56,46 @@ header.wp-block-group.abd-header {
 }
 
 @media (min-width: 1024px) {
-    .complex-bento-grid {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 250px 250px 200px; 
-    }
-    .area-featured { grid-column: span 2; grid-row: span 2; }
-    .area-short    { grid-column: span 1; grid-row: span 2; }
-    .area-stat-1   { grid-column: span 1; grid-row: span 1; }
-    .area-stat-2   { grid-column: span 1; grid-row: span 1; }
-    .area-video    { grid-column: span 2; grid-row: span 1; }
-    .area-small-1  { grid-column: span 1; grid-row: span 1; }
-    .area-small-2  { grid-column: span 1; grid-row: span 1; }
+  .complex-bento-grid {
+    display: grid;
+    grid-template-areas:
+      "featured featured short stat1"
+      "featured featured short stat2"
+      "video video small1 small2";
+    grid-template-columns: 0.9fr 0.9fr 1fr 1fr;
+    grid-template-rows: 150px 100px 220px;
+    gap: 3rem 2.3rem;
+    margin-bottom: 8rem;
+  }
+  .area-featured { grid-area: featured; }
+  .area-short    { grid-area: short; }
+  .area-stat-1   { grid-area: stat1; }
+  .area-stat-2   { grid-area: stat2; }
+  .area-video    { grid-area: video; }
+  .area-small-1  { grid-area: small1; }
+  .area-small-2  { grid-area: small2; }
 }
 
 /* 4. CARTES & IMAGE FILL */
 .bento-card {
-    border-radius: 16px !important;
-    overflow: hidden;
-    position: relative;
-    background-color: white;
-    height: 100%;
-    width: 100%;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 7px 26px -8px #47556936;
+  overflow: hidden;
+  transition: box-shadow 0.18s, transform 0.17s;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
 }
-.bento-card:hover { transform: translateY(-4px); box-shadow: var(--wp--preset--shadow--soft); z-index: 5; }
+.bento-card:hover {
+  box-shadow: 0 20px 44px -10px #33415554;
+  transform: translateY(-4px) scale(1.017);
+  z-index: 10;
+}
 
 /* CORRECTION : Fond noir par défaut pour les zones visuelles */
 .area-featured, .area-short, .area-video {
@@ -87,16 +103,71 @@ header.wp-block-group.abd-header {
 }
 
 /* FORCE IMAGE FILL */
-.bento-card .wp-block-query,
-.bento-card .wp-block-post-template,
-.bento-card .wp-block-group,
-.bento-card figure.wp-block-post-featured-image {
-    height: 100% !important;
-    margin: 0 !important;
-    display: block !important;
+/* Images fill, très arrondies */
+.bento-card img,
+.bento-card .wp-block-post-featured-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 18px 18px 0 0 !important;
+  display: block;
+  transition: transform 0.5s;
+}
+.bento-card:hover img { transform: scale(1.045); }
+
+/* --- Overlay visuel pour texte lisible sur image --- */
+.card-overlay {
+  background: linear-gradient(to top, rgba(15,23,42,0.93) 0%, rgba(15,23,42,0.22) 54%, transparent 98%);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.card-content {
+  position: absolute;
+  bottom: 0; left: 0; width: 100%;
+  padding: 1.3rem 1.25rem 1.15rem 1.25rem;
+  z-index: 3;
+  color: #fff;
+  text-shadow: 0 2px 8px #0f172a66;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
 }
 
-.bento-card img { 
+/* --- Style pour cartes stat/infographie/citation (petites) --- */
+.card-stat {
+  background: #fff !important;
+  color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.45rem 1.15rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 10px -6px #47556916;
+  min-height: 120px;
+  position: relative;
+}
+
+/* Toujours en blanc et bien lisible */
+.card-content h2,
+.card-content h3,
+.card-content h4,
+.card-content a,
+.card-content .wp-block-post-title,
+.card-content .wp-block-post-title a {
+  color: #fff !important;
+  text-shadow: 0 2px 8px #0f172a66;
+}
+
+/* Si tu utilises Gutenberg/WordPress : */
+.card-content .wp-block-post-title a {
+  color: #fff !important;
+}
+
+/*.bento-card img { 
     width: 100% !important; 
     height: 100% !important; 
     object-fit: cover !important; 
@@ -108,6 +179,8 @@ header.wp-block-group.abd-header {
 .card-overlay { background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.1) 60%, transparent 100%); position: absolute; inset: 0; pointer-events: none; z-index: 2; }
 .card-content { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1.5rem; z-index: 3; }
 .card-stat { display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; border: 1px solid var(--wp--preset--color--gray-light); background-color: white !important; }
+
+*/
 
 /* 5. SECTION KIDS */
 .bg-kids-pattern {
@@ -129,43 +202,56 @@ header.wp-block-template-part,
   -webkit-backdrop-filter: blur(12px);
   background: rgba(255,255,255,0.92) !important;
   width: 100vw !important;
-  margin-left: calc(-1 * (100vw - 100%) / 2) !important; /* Pour déborder les max-width WordPress si besoin */
+  margin-left: calc(-1 * (100vw - 100%) / 2) !important; /* Pour déborder*/
 }
 
-/* --- NOUVELLE SECTION POUR LES CATÉGORIES (Centrage et Grille) --- */
-
-/* 1. Assurez-vous que le wrapper prenne toute la largeur disponible et soit centré */
-/* Le max-width est supprimé pour laisser le <main> ou l'utilisateur le définir */
+/* GESTION CATEGORIE */
+/* --- Centrage et 3 colonnes sur la page catégorie --- */
 .archive-cards-wrap {
-  /* On s'assure qu'il n'y a pas de style qui le décale */
+  max-width: 1500px;
+  margin:0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* La grille S'APPLIQUE UNIQUEMENT AU <ul> qui contient les articles */
+.category-archive-grid > ul.wp-block-post-template {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto; 
-  padding: 0 1.5rem;
+  margin: 0;
+  padding: 0;
 }
 
-/* 2. Réinitialisation de la grille d'articles à 3 colonnes sur grand écran */
-.category-archive-grid {
-    /* La grille Flex/Grid de WordPress est réinitialisée par vos styles, on corrige la colonne */
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr); /* Remise à 3 colonnes comme demandé */
-    gap: 2.2rem;
-    width: 100%; /* S'assure qu'elle prend toute la place du wrapper */
-}
-
-/* 3. Media Queries ajustées pour les écrans plus petits */
+/* Responsive tablette : 2 colonnes */
 @media (max-width: 992px) {
-    .category-archive-grid {
-        grid-template-columns: 1fr 1fr; /* 2 colonnes pour les tablettes */
-    }
+  .category-archive-grid > ul.wp-block-post-template {
+    grid-template-columns: 1fr 1fr;
+    max-width: 700px;
+  }
 }
-@media (max-width: 600px) { /* 600px est souvent le point de bascule pour les mobiles */
-    .archive-cards-wrap { padding-left: 0.5rem; padding-right: 0.5rem; }
-    .category-archive-grid {
-        grid-template-columns: 1fr; /* 1 colonne pour les mobiles */
-        gap: 1.4rem;
-    }
+
+/* Responsive mobile : 1 colonne */
+@media (max-width: 640px) {
+  .archive-cards-wrap {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .category-archive-grid > ul.wp-block-post-template {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 99vw;
+  }
 }
+
+/* Les items (li) d'article dans la grille : largeur auto */
+.category-archive-grid > ul.wp-block-post-template > li {
+  width: 100%;
+  min-width: 0;
+}
+
+
 
 /* les styles de base de .bento-card  */
 
@@ -176,7 +262,7 @@ header.wp-block-template-part,
   box-shadow: 0 6px 32px -8px #64748b22;
   transition: box-shadow 0.2s, transform 0.2s;
   margin: 0;
-  padding: 0;
+  padding: 1rem 0.7rem;
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -399,4 +485,166 @@ header.wp-block-template-part,
     grid-template-columns:1fr;
     gap: 1.1rem 0;
   }
+}
+
+/* ===========================
+   Footer patch 2024 
+   =========================== */
+
+/* Footer grille avec espace correct entre colonnes */
+.wp-block-group.has-contrast-background-color .wp-block-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.5rem;           /* << Ajuste l'espace inter-colonne */
+  margin-bottom: 1.6rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .wp-block-group.has-contrast-background-color .wp-block-columns {
+    flex-direction: column;
+    gap: 1.3rem;
+  }
+}
+
+/* Colonne minimale pour que tout passe bien sur desktop et mobile */
+.wp-block-group.has-contrast-background-color .wp-block-column {
+  min-width: 155px;
+  flex: 1 1 20%;
+  padding: 0 0.5rem;
+}
+
+/* Titre de colonne, blanc et visible */
+.wp-block-group.has-contrast-background-color h4,
+.wp-block-group.has-contrast-background-color .has-white-color {
+  color: #fff !important;
+  font-size: 1.09rem;
+  font-weight: 700;
+  margin-bottom: 0.9rem;
+  letter-spacing: -0.5px;
+}
+
+/* Logo/slogan */
+.wp-block-group.has-contrast-background-color p.has-small-font-size {
+  color: #64748b !important;
+  font-size: 0.97rem;
+  margin-bottom: 0.6rem;
+}
+
+/* Liste de liens, retire les puces */
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-links li {
+  margin-bottom: 0.37rem;
+  padding-left: 0;
+}
+
+/* Liens du footer : couleur, pas de soulignement*/
+.footer-links a {
+  color: var(--wp--preset--color--gray-light);
+  text-decoration: none;
+  font-size: 0.98rem;
+  font-weight: 500;
+  transition: color 0.15s, text-decoration 0.15s;
+  display: inline-block;
+  padding: 2px 0;
+}
+
+/* Survol : couleur accent + soulignement gras */
+.footer-links a:hover {
+  color: var(--wp--preset--color--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2.5px;
+}
+
+/* Social icons line, gap serré dans le footer */
+.wp-block-group.has-contrast-background-color .wp-block-social-links {
+  display: flex !important;
+  gap: 0.6rem !important;   /* << Ici on resserre le gap */
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0.5rem 0 0.3rem 0;
+}
+.wp-block-group.has-contrast-background-color .wp-block-social-link a {
+  color: var(--wp--preset--color--gray-light) !important;
+  font-size: 1.28em !important;
+  transition: color 0.2s;
+}
+.wp-block-group.has-contrast-background-color .wp-block-social-link a:hover {
+  color: var(--wp--preset--color--accent) !important;
+  filter: brightness(1.12);
+}
+
+/* Mentions légales / Confidentialité */
+.wp-block-group.has-contrast-background-color .wp-block-column a {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.97rem;
+  margin-left: 1.1em;
+  transition: color 0.15s, text-decoration 0.15s;
+}
+.wp-block-group.has-contrast-background-color .wp-block-column a:hover {
+  color: var(--wp--preset--color--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2.5px;
+}
+
+/* Bas du footer (copyright/légal) */
+.wp-block-group.has-contrast-background-color .wp-block-columns[style*="padding-top"] {
+  border-top: 1px solid #20232a;
+  padding-top: 1.3rem;
+  font-size: 0.97rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Copyright */
+.wp-block-group.has-contrast-background-color .has-small-font-size {
+  color: #64748b !important;
+  font-size: 0.98rem !important;
+}
+
+/* Accessibilité focus */
+a:focus {
+  outline: 2px solid var(--wp--preset--color--accent);
+  outline-offset: 2px;
+}
+
+}
+/* Suppression margin/padding-left des colonnes du footer */
+.wp-block-group.has-contrast-background-color .wp-block-column {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Correction footer links dans les colonnes principales */
+.wp-block-group.has-contrast-background-color .footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wp-block-group.has-contrast-background-color .footer-links li {
+  margin-bottom: 0.36rem;
+  padding-left: 0; /* bien aligné avec le h4 */
+}
+
+/* N'applique margin-left QUE dans la zone légale du bas */
+.wp-block-group.has-contrast-background-color .footer-links a {
+  margin-left: 0 !important;
+}
+
+.wp-block-group.has-contrast-background-color .wp-block-columns[style*="padding-top"] .wp-block-column a {
+  margin-left: 1.1em;
+}
+
+.wp-block-group.has-contrast-background-color .wp-block-column h4 {
+  margin-bottom: 0.75rem; /* rapproche le h4 de la liste */
 }
