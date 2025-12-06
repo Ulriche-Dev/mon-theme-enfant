@@ -686,26 +686,69 @@ header.wp-block-template-part,
 
 /* style du bandeau services-cta*/
 
+.services-b2b-cta {
+  width: 100vw;
+  max-width: 100%;
+  margin-left: calc(-1 * (100vw - 100%) / 2); /* sort du container */
+  background: #1e293b;
+  color: #facc15;
+  border-radius: 20px 20px 0 0;
+  margin-top: 3rem;         /* espace avec la section précédente */
+  margin-bottom: 0;         /* coller au footer */
+  padding: 2.7rem 3vw;
+  box-shadow: 0 6px 32px -10px #64748b55;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 3;
+}
 
 .services-b2b-cta h2 {
-  font-family: 'Poppins', sans-serif;
-  margin-bottom: 0.4rem;
-  font-weight: 900;
+  font-size: 2rem;
+  font-family: 'Poppins',sans-serif;
+  margin: 0 0 0.6rem 0;
+  font-weight: 800;
   letter-spacing: -2px;
+  color: #facc15;
+}
+
+.services-b2b-cta div {
+  font-size: 1.05rem;
+  color: #f1f5f9;
+  max-width: 580px;
+  line-height: 1.45;
+}
+
+.services-b2b-btn {
+  display: inline-block;
+  background: #facc15;
+  color: #1e293b;
+  font-weight: 900;
+  font-size: 1.15rem;
+  padding: 1.15em 2.3em;
+  border-radius: 11px;
+  text-decoration: none;
+  box-shadow: 0 2px 16px #facc157a;
+  transition: all 0.15s;
 }
 .services-b2b-btn:hover {
   background: #fde047;
   color: #a21caf;
 }
-@media (max-width:700px) {
+
+@media (max-width: 900px) {
   .services-b2b-cta {
     flex-direction: column;
-    padding: 1.3rem 2vw;
+    padding: 2rem 2vw;
     gap: 1.2rem;
     text-align: center;
   }
+  .services-b2b-cta div {
+    max-width: 100%;
+  }
 }
-
 
 /* Styles page services */
 .service-card {
