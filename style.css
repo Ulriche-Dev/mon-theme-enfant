@@ -46,35 +46,7 @@ header.wp-block-group.abd-header {
 .abd-nav-link:hover, .abd-nav-link.active { background: var(--wp--preset--color--contrast); color: white; border-color: var(--wp--preset--color--contrast); }
 .abd-nav-link.kids-btn { background: #f3e8ff; color: #9333ea; border-color: #d8b4fe; font-weight: 800; display: flex; align-items: center; gap: 6px; }
 
-/* 3. GRILLE BENTO */
-.complex-bento-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 8rem;
-}
 
-@media (min-width: 1024px) {
-  .complex-bento-grid {
-    display: grid;
-    grid-template-areas:
-      "featured featured short stat1"
-      "featured featured short stat2"
-      "video video small1 small2";
-    grid-template-columns: 0.9fr 0.9fr 1fr 1fr;
-    grid-template-rows: 150px 100px 220px;
-    gap: 3rem 2.3rem;
-    margin-bottom: 8rem;
-  }
-  .area-featured { grid-area: featured; }
-  .area-short    { grid-area: short; }
-  .area-stat-1   { grid-area: stat1; }
-  .area-stat-2   { grid-area: stat2; }
-  .area-video    { grid-area: video; }
-  .area-small-1  { grid-area: small1; }
-  .area-small-2  { grid-area: small2; }
-}
 
 /* 4. CARTES & IMAGE FILL */
 .bento-card {
@@ -205,53 +177,342 @@ header.wp-block-template-part,
   margin-left: calc(-1 * (100vw - 100%) / 2) !important; /* Pour déborder*/
 }
 
-/* GESTION CATEGORIE */
-/* --- Centrage et 3 colonnes sur la page catégorie --- */
-.archive-cards-wrap {
-  max-width: 1500px;
-  margin:0;
-  padding-left: 1rem;
-  padding-right: 1rem;
+/* ========================================
+   PAGES CATÉGORIES - GRILLE 2 COLONNES (CARTES BLANCHES)
+   ======================================== */
+
+/* Grille 2 colonnes pour les catégories */
+.category-articles-grid ul.category-two-columns.wp-block-post-template {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
 }
 
-/* La grille S'APPLIQUE UNIQUEMENT AU <ul> qui contient les articles */
-.category-archive-grid > ul.wp-block-post-template {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+/* Override WordPress layout */
+.category-articles-grid ul.category-two-columns.wp-block-post-template.is-layout-flow {
+    display: grid !important;
 }
 
-/* Responsive tablette : 2 colonnes */
-@media (max-width: 992px) {
-  .category-archive-grid > ul.wp-block-post-template {
-    grid-template-columns: 1fr 1fr;
-    max-width: 700px;
-  }
+/* Chaque article - hauteur fixe */
+.category-articles-grid ul.category-two-columns > li.wp-block-post {
+    width: 100% !important;
+    height: 400px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
 }
 
-/* Responsive mobile : 1 colonne */
-@media (max-width: 640px) {
-  .archive-cards-wrap {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-  .category-archive-grid > ul.wp-block-post-template {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 99vw;
-  }
+/* Carte article BLANCHE */
+.category-articles-grid .category-article-card {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 20px -6px rgba(0,0,0,0.1) !important;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+    display: flex !important;
+    flex-direction: column !important;
 }
 
-/* Les items (li) d'article dans la grille : largeur auto */
-.category-archive-grid > ul.wp-block-post-template > li {
-  width: 100%;
-  min-width: 0;
+/* Hover effet */
+.category-articles-grid .category-article-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 30px -10px rgba(0,0,0,0.15) !important;
+    z-index: 10 !important;
 }
 
+/* Div intérieur */
+.category-articles-grid .category-article-card > div {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+}
 
+/* Image en haut (pas plein écran) */
+.category-articles-grid figure.wp-block-post-featured-image {
+    width: 100% !important;
+    height: 250px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+.category-articles-grid figure.wp-block-post-featured-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    transition: transform 0.3s !important;
+}
+
+.category-articles-grid .category-article-card:hover img {
+    transform: scale(1.05) !important;
+}
+
+/* PAS d'overlay sombre */
+.category-articles-grid .card-overlay {
+    display: none !important;
+}
+
+/* Contenu texte en bas (position normale, pas absolue) */
+.category-articles-grid .card-content {
+    position: relative !important;
+    padding: 1.5rem !important;
+    background: #ffffff !important;
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+}
+
+/* Titre NOIR */
+.category-articles-grid .card-content h3.wp-block-post-title {
+    margin: 0 0 0.5rem 0 !important;
+    padding: 0 !important;
+    color: #0f172a !important;
+}
+
+.category-articles-grid .card-content h3.wp-block-post-title a {
+    color: #0f172a !important;
+    text-decoration: none !important;
+    transition: color 0.2s !important;
+    font-size: 1.3rem !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+}
+
+.category-articles-grid .card-content h3.wp-block-post-title a:hover {
+    color: #f59e0b !important;
+}
+
+/* Date en gris */
+.category-articles-grid .card-content .wp-block-post-date,
+.category-articles-grid .card-content time {
+    color: #64748b !important;
+    font-size: 13px !important;
+    margin: 0 !important;
+}
+
+/* Responsive : 1 colonne sur mobile */
+@media (max-width: 768px) {
+    .category-articles-grid ul.category-two-columns.wp-block-post-template {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    .category-articles-grid ul.category-two-columns > li.wp-block-post {
+        height: 380px !important;
+    }
+    
+    .category-articles-grid figure.wp-block-post-featured-image {
+        height: 200px !important;
+    }
+}
+
+/* Pagination pages catégories */
+.category-articles-grid .wp-block-query-pagination {
+    margin-top: 3rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+}
+
+.category-articles-grid .wp-block-query-pagination a,
+.category-articles-grid .wp-block-query-pagination .page-numbers {
+    padding: 0.6rem 1.2rem !important;
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    color: #0f172a !important;
+    text-decoration: none !important;
+/* ========================================
+   PAGES CATÉGORIES - GRILLE 2 COLONNES (CARTES BLANCHES)
+   ======================================== */
+
+/* Grille 2 colonnes pour les catégories */
+.category-articles-grid ul.category-two-columns.wp-block-post-template {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* Override WordPress layout */
+.category-articles-grid ul.category-two-columns.wp-block-post-template.is-layout-flow {
+    display: grid !important;
+}
+
+/* Chaque article - hauteur fixe */
+.category-articles-grid ul.category-two-columns > li.wp-block-post {
+    width: 100% !important;
+    height: 400px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+}
+
+/* Carte article BLANCHE */
+.category-articles-grid .category-article-card {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 20px -6px rgba(0,0,0,0.1) !important;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Hover effet */
+.category-articles-grid .category-article-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 30px -10px rgba(0,0,0,0.15) !important;
+    z-index: 10 !important;
+}
+
+/* Div intérieur */
+.category-articles-grid .category-article-card > div {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+}
+
+/* Image en haut (pas plein écran) */
+.category-articles-grid figure.wp-block-post-featured-image {
+    width: 100% !important;
+    height: 250px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+.category-articles-grid figure.wp-block-post-featured-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    transition: transform 0.3s !important;
+}
+
+.category-articles-grid .category-article-card:hover img {
+    transform: scale(1.05) !important;
+}
+
+/* PAS d'overlay sombre */
+.category-articles-grid .card-overlay {
+    display: none !important;
+}
+
+/* Contenu texte en bas (position normale, pas absolue) */
+.category-articles-grid .card-content {
+    position: relative !important;
+    padding: 1.5rem !important;
+    background: #ffffff !important;
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+}
+
+/* Titre NOIR */
+.category-articles-grid .card-content h3.wp-block-post-title {
+    margin: 0 0 0.5rem 0 !important;
+    padding: 0 !important;
+    color: #0f172a !important;
+}
+
+.category-articles-grid .card-content h3.wp-block-post-title a {
+    color: #0f172a !important;
+    text-decoration: none !important;
+    transition: color 0.2s !important;
+    font-size: 1.3rem !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+}
+
+.category-articles-grid .card-content h3.wp-block-post-title a:hover {
+    color: #f59e0b !important;
+}
+
+/* Date en gris */
+.category-articles-grid .card-content .wp-block-post-date,
+.category-articles-grid .card-content time {
+    color: #64748b !important;
+    font-size: 13px !important;
+    margin: 0 !important;
+}
+
+/* Responsive : 1 colonne sur mobile */
+@media (max-width: 768px) {
+    .category-articles-grid ul.category-two-columns.wp-block-post-template {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    .category-articles-grid ul.category-two-columns > li.wp-block-post {
+        height: 380px !important;
+    }
+    
+    .category-articles-grid figure.wp-block-post-featured-image {
+        height: 200px !important;
+    }
+}
+
+/* Pagination pages catégories */
+.category-articles-grid .wp-block-query-pagination {
+    margin-top: 3rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+}
+
+.category-articles-grid .wp-block-query-pagination a,
+.category-articles-grid .wp-block-query-pagination .page-numbers {
+    padding: 0.6rem 1.2rem !important;
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    color: #0f172a !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    transition: all 0.2s !important;
+}
+
+.category-articles-grid .wp-block-query-pagination a:hover,
+.category-articles-grid .wp-block-query-pagination .current {
+    background: #0f172a !important;
+    color: white !important;
+    border-color: #0f172a !important;
+}
 
 /* les styles de base de .bento-card  */
 
@@ -647,4 +908,180 @@ a:focus {
 
 .wp-block-group.has-contrast-background-color .wp-block-column h4 {
   margin-bottom: 0.75rem; /* rapproche le h4 de la liste */
+}
+
+/* ========================================
+   PAGE D'ACCUEIL - GRILLE 2 COLONNES
+   ======================================== */
+
+/* Cache l'ancienne grille Bento */
+.complex-bento-grid {
+    display: none !important;
+}
+
+/* FORCE LA GRILLE EN 2 COLONNES */
+ul.two-column-grid.wp-block-post-template {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* Override WordPress flex layout */
+ul.two-column-grid.wp-block-post-template.is-layout-flow {
+    display: grid !important;
+}
+
+/* Chaque <li> article - hauteur fixe */
+ul.two-column-grid > li.wp-block-post {
+    width: 100% !important;
+    height: 350px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+}
+
+/* Le groupe article-card */
+ul.two-column-grid .wp-block-group.bento-card.article-card {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 18px !important;
+    background: #0f172a !important;
+    box-shadow: 0 4px 20px -6px rgba(0,0,0,0.2) !important;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+}
+
+/* Hover sur la carte */
+ul.two-column-grid .bento-card:hover {
+    transform: translateY(-5px) scale(1.02) !important;
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3) !important;
+    z-index: 10 !important;
+}
+
+/* Le div intérieur avec position relative */
+ul.two-column-grid .article-card > div {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Image d'article en plein écran */
+ul.two-column-grid figure.wp-block-post-featured-image {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+ul.two-column-grid figure.wp-block-post-featured-image img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Overlay sombre pour lisibilité */
+ul.two-column-grid .card-overlay {
+    content: "" !important;
+    background: linear-gradient(to top, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.5) 40%, transparent 100%) !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+}
+
+/* Contenu texte (titre + date) */
+ul.two-column-grid .card-content {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 1.5rem !important;
+    z-index: 3 !important;
+}
+
+/* Titre article blanc et cliquable */
+ul.two-column-grid .card-content h3.wp-block-post-title {
+    margin: 0 0 0.5rem 0 !important;
+    padding: 0 !important;
+}
+
+ul.two-column-grid .card-content h3.wp-block-post-title a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8) !important;
+    transition: color 0.2s !important;
+    font-size: 1.3rem !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+}
+
+ul.two-column-grid .card-content h3.wp-block-post-title a:hover {
+    color: #f59e0b !important;
+}
+
+/* Date en gris clair */
+ul.two-column-grid .card-content .wp-block-post-date,
+ul.two-column-grid .card-content time {
+    color: #cbd5e1 !important;
+    font-size: 13px !important;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.6) !important;
+}
+
+/* Responsive : 1 colonne sur mobile */
+@media (max-width: 768px) {
+    ul.two-column-grid.wp-block-post-template {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    ul.two-column-grid > li.wp-block-post {
+        height: 280px !important;
+    }
+}
+
+/* Pagination */
+.home-articles-grid .wp-block-query-pagination {
+    margin-top: 3rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+}
+
+.home-articles-grid .wp-block-query-pagination a,
+.home-articles-grid .wp-block-query-pagination .page-numbers {
+    padding: 0.6rem 1.2rem !important;
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    color: #0f172a !important;
+    text-decoration: none !important;
+    transition: all 0.2s !important;
+}
+
+.home-articles-grid .wp-block-query-pagination a:hover,
+.home-articles-grid .wp-block-query-pagination .current {
+    background: #0f172a !important;
+    color: white !important;
+    border-color: #0f172a !important;
 }
