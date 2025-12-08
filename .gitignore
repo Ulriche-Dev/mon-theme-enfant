@@ -1,0 +1,59 @@
+# .gitignore pour un projet Django complet
+
+# Environnements virtuels
+venv/
+.env/
+.envrc
+
+# Fichiers/dossiers Node.js
+node_modules/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers de logs
+*.log
+
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Fichiers de base de données
+*.sqlite3
+
+# Fichiers de migration
+*/migrations/__pycache__/
+*/migrations/*.pyc
+
+# Fichiers de configuration locaux
+*.local
+*.env
+
+# Fichiers de cache
+.cache/
+
+# Fichiers de test coverage
+htmlcov/
+.coverage
+.coverage.*
+
+# Fichiers de media/uploads
+media/
+
+# Fichiers de static collectés
+staticfiles/
+static/
+
+# Fichiers d'IDE
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Autres
+*.bak
+*.swp
+*.tmp
