@@ -7,6 +7,7 @@
     <!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between","alignItems":"center","flexWrap":"nowrap"}} -->
     <div class="wp-block-group">
         
+        <!-- LOGO -->
         <!-- wp:html -->
 	<a href="/" class="abd-logo-container">
 	    <div class="abd-logo-icon">
@@ -19,8 +20,15 @@
 	<!-- /wp:html -->
 
         <!-- ACTIONS -->
-        <!-- wp:group {"layout":{"type":"flex","alignItems":"center"}} -->
-        <div class="wp-block-group">
+        <!-- wp:group {"layout":{"type":"flex","alignItems":"center","flexWrap":"nowrap"}} -->
+        <div class="wp-block-group" style="display:flex; align-items:center; gap:16px;">
+            
+            <!-- "À propos" AVANT le bouton S'abonner -->
+            <div class="hide-mobile">
+                <a href="/a-propos/" class="abd-nav-link" style="color: var(--wp--preset--color--contrast); text-decoration: none; font-weight: 500;">À propos</a>
+            </div>
+            
+            <!-- Bouton S'abonner -->
             <div class="hide-mobile">
                <!-- wp:buttons -->
                 <div class="wp-block-buttons">
@@ -52,8 +60,7 @@
             <li><a href="/category/sport" class="abd-nav-link">Sport</a></li>
             <li><a href="/category/ecologie" class="abd-nav-link">Écologie</a></li>
             <li><a href="/category/societe" class="abd-nav-link">Société</a></li>
-            <li><a href="/a-propos/" class="abd-nav-link">À propos</a></li>
-
+            
             <!-- Barre de séparation -->
             <li style="width:1px; height:24px; background:#e2e8f0; margin:0 4px;"></li>
 
