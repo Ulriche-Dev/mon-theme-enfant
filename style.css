@@ -1148,3 +1148,11 @@ ul.two-column-grid .card-content time {
     color: white !important;
     border-color: #0f172a !important;
 }
+
+.post-category-name {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #f59e0b; /* couleur accent orange */
+  margin-left: 4px;
+}
