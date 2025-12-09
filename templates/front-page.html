@@ -15,9 +15,13 @@
             <!-- wp:group {"className":"bento-card article-card","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}}} -->
             <div class="wp-block-group bento-card article-card">
                 <div style="position:relative; height:100%; min-height:300px;">
-                    <!-- UTILISEZ LE BLOC NATIF, PAS LE SHORTCODE -->
-                <!-- wp:post-featured-image {"isLink":true,"style":{"border":{"radius":"18px"}}} /-->
-
+                    <!-- SOLUTION : HTML + Shortcode combinés -->
+                    <!-- wp:html -->
+                    <div class="featured-image-wrapper">
+                        [featured_or_default]
+                    </div>
+                    <!-- /wp:html -->
+                    
                     <!-- Badge Épinglé (CSS le rendra visible seulement sur le premier) -->
                     <div class="sticky-badge">📌 Épinglé</div>
                     
@@ -32,13 +36,6 @@
             </div>
             <!-- /wp:group -->
         <!-- /wp:post-template -->
-
-        <!-- PAGINATION -->
-        <!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"}} -->
-            <!-- wp:query-pagination-previous /-->
-            <!-- wp:query-pagination-numbers /-->
-            <!-- wp:query-pagination-next /-->
-        <!-- /wp:query-pagination -->
     </div>
     <!-- /wp:query -->
 

@@ -106,22 +106,66 @@ function abd_header_categories_nav() {
 
 
 
-function themechild_featured_or_default() {
-    if (has_post_thumbnail()) {
-        $image_url = get_the_post_thumbnail_url(null, 'large');
-        return '<img src="' . esc_url($image_url) . '" 
-                class="fallback-image" 
-                style="border-radius:18px; width:100%; height:300px; object-fit:cover; display:block;" 
-                alt="' . esc_attr(get_the_title()) . '">';
-    } else {
-        // Utilisez le chemin ABSOLU vers votre image
-        $default_image = get_stylesheet_directory_uri() . '/assets/images/default-image.jpg';
-        
-        // Image de secours si le fichier n'existe pas
-        if (!file_exists(get_stylesheet_directory() . '/assets/images/default-image.jpg')) {
-            $default_image = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+// SHORTCODE CORRIGÉ pour fonctionner dans la VERSION 2
+function themechild_featured_or_default($atts = array(), $content = null) {
+    global $post;
+    
+    // DEBUG : Vérifier si on est dans la boucle
+    if (!$post || !is_object($post)) {
+        // Essayer de récupérer le post depuis la requête globale
+        global $wp_query;
+        if ($wp_query && $wp_query->in_the_loop && $wp_query->post) {
+            $post = $wp_query->post;
         }
-        
+    }
+    
+    $post_id = 0;
+    
+    // 1. Essayer depuis les attributs
+    if (isset($atts['id'])) {
+        $post_id = intval($atts['id']);
+    }
+    // 2. Essayer depuis le post global
+    elseif ($post && isset($post->ID)) {
+        $post_id = $post->ID;
+    }
+    // 3. Dernier recours : le dernier post de la requête
+    else {
+        global $wp_query;
+        if ($wp_query && $wp_query->posts) {
+            $post_id = $wp_query->posts[0]->ID ?? 0;
+        }
+    }
+    
+    // URL de l'image par défaut
+    $default_image = get_stylesheet_directory_uri() . '/assets/images/default-image.jpg';
+    
+    // Vérifier si le fichier existe
+    if (!file_exists(get_stylesheet_directory() . '/assets/images/default-image.jpg')) {
+        $default_image = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+    }
+    
+    // Si on a un ID d'article
+    if ($post_id > 0) {
+        // Vérifier si l'article a une image
+        if (has_post_thumbnail($post_id)) {
+            $image_url = get_the_post_thumbnail_url($post_id, 'large');
+            $title = get_the_title($post_id);
+            
+            return '<img src="' . esc_url($image_url) . '" 
+                    class="fallback-image" 
+                    style="border-radius:18px; width:100%; height:300px; object-fit:cover; display:block;" 
+                    alt="' . esc_attr($title) . '">';
+        } else {
+            // Image par défaut
+            $title = get_the_title($post_id);
+            return '<img src="' . esc_url($default_image) . '" 
+                    class="fallback-image" 
+                    style="border-radius:18px; width:100%; height:300px; object-fit:cover; display:block;" 
+                    alt="' . esc_attr($title) . '">';
+        }
+    } else {
+        // Image par défaut sans ID
         return '<img src="' . esc_url($default_image) . '" 
                 class="fallback-image" 
                 style="border-radius:18px; width:100%; height:300px; object-fit:cover; display:block;" 
@@ -129,3 +173,11 @@ function themechild_featured_or_default() {
     }
 }
 add_shortcode('featured_or_default', 'themechild_featured_or_default');
+
+// FILTRE pour aider le shortcode à trouver le bon post
+add_action('wp', function() {
+    // S'assurer que le post global est défini dans les requêtes
+    if (is_main_query() && in_the_loop()) {
+        // Rien à faire, WordPress gère déjà
+    }
+});
