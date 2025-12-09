@@ -104,7 +104,6 @@ function abd_header_categories_nav() {
 }
 
 
-
 function themechild_featured_or_default() {
     if (has_post_thumbnail()) {
         $image_url = get_the_post_thumbnail_url(null, 'large');
