@@ -1153,33 +1153,93 @@ ul.two-column-grid .card-content time {
 /* épinglement*/
 /* Grille 3 colonnes */
 .three-columns-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem !important;
+    margin-bottom: 3rem !important;
+}
+
+/* Ajustement responsive */
+@media (max-width: 1024px) {
+    .three-columns-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .three-columns-grid {
+        grid-template-columns: 1fr !important;
+    }
 }
 
 /* Cartes */
 .bento-card {
-    position: relative;
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 18px !important;
+    height: 100% !important;
+    min-height: 300px !important;
 }
 
-/* Fallback + featured images */
+/* Overlay pour lisibilité du texte */
+.card-overlay {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 70% !important;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%) !important;
+    z-index: 1 !important;
+}
+
+/* Contenu de la carte */
+.card-content {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Images */
 .fallback-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 18px;
+    width: 100% !important;
+    height: 300px !important;
+    object-fit: cover !important;
+    border-radius: 18px !important;
+    display: block !important;
 }
 
 /* Badge Épinglé */
 .sticky-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: #f59e0b;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 8px;
-    font-weight: 700;
-    z-index: 10;
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    background: #f59e0b !important;
+    color: white !important;
+    padding: 6px 12px !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    z-index: 10 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Style pour l'article épinglé */
+.sticky-post .bento-card {
+    border: 2px solid #f59e0b !important;
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.2) !important;
+}
+
+/* Assure que le titre et la date sont lisibles */
+.wp-block-post-title a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.wp-block-post-title a:hover {
+    text-decoration: underline !important;
+}
+
+/* Espacement entre les deux grilles */
+.wp-block-query:first-child {
+    margin-bottom: 2rem !important;
 }
