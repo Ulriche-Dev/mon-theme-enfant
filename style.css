@@ -1148,3 +1148,41 @@ ul.two-column-grid .card-content time {
     color: white !important;
     border-color: #0f172a !important;
 }
+
+
+
+
+
+
+
+/* épinglement*/
+/* Style pour l'indicateur sticky */
+.sticky-indicator {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 10;
+}
+
+.sticky-icon {
+    background-color: #f59e0b !important;
+    color: white !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0 !important;
+}
+
+.sticky-icon:not(:empty)::before {
+    content: "★";
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Cache l'indicateur pour les articles non-épinglés */
+.sticky-icon:empty {
+    display: none !important;
+}
