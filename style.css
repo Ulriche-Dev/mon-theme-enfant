@@ -973,10 +973,6 @@ a:focus {
   margin-bottom: 0.75rem; /* rapproche le h4 de la liste */
 }
 
-/* =========================================== */
-/* GRID 3×3 FONCTIONNELLE - SOLUTION SIMPLE   */
-/* =========================================== */
-
 /* 1. FORCER LA GRID 3×3 */
 .grid-3x3 {
     display: grid !important;
@@ -1009,13 +1005,8 @@ a:focus {
     flex-direction: column !important;
 }
 
-/* 5. IMAGES */
-.wp-block-post-featured-image {
-    flex: 1 !important;
-    min-height: 200px !important;
-}
-
-.wp-block-post-featured-image img {
+/* 5. IMAGES DU SHORTCODE */
+.fallback-image {
     width: 100% !important;
     height: 300px !important;
     object-fit: cover !important;
@@ -1090,10 +1081,9 @@ a:focus {
     }
 }
 
-/* 12. S'ASSURER QUE LA PAGINATION N'INTERFÈRE PAS */
-.grid-3x3 .wp-block-query-pagination {
-    grid-column: 1 / -1 !important;
-    margin-top: 2rem !important;
+/* 12. S'ASSURER QUE TOUS LES ARTICLES ONT LA MÊME HAUTEUR */
+.grid-3x3 .bento-card.article-card > div {
+    height: 100% !important;
 }
 
 
