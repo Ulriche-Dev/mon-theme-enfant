@@ -104,26 +104,21 @@ function abd_header_categories_nav() {
 }
 
 
+
+
 function themechild_featured_or_default() {
-    // Vérifier si nous sommes dans un article
-    if (in_the_loop() && has_post_thumbnail()) {
+    if (has_post_thumbnail()) {
         $image_url = get_the_post_thumbnail_url(null, 'large');
-        $title = get_the_title();
-        
         return '<img src="' . esc_url($image_url) . '" 
                 class="fallback-image" 
                 style="border-radius:18px; width:100%; height:300px; object-fit:cover; display:block;" 
-                alt="' . esc_attr($title) . '">';
+                alt="' . esc_attr(get_the_title()) . '">';
     } else {
-        // Image par défaut
+        // Utilisez le chemin ABSOLU vers votre image
         $default_image = get_stylesheet_directory_uri() . '/assets/images/default-image.jpg';
         
-        // Vérifier si le fichier existe
+        // Image de secours si le fichier n'existe pas
         if (!file_exists(get_stylesheet_directory() . '/assets/images/default-image.jpg')) {
-            // Créer le dossier si nécessaire
-            wp_mkdir_p(get_stylesheet_directory() . '/assets/images/');
-            
-            // Utiliser une image par défaut externe
             $default_image = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
         }
         
