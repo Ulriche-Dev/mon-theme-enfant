@@ -1152,24 +1152,23 @@ ul.two-column-grid .card-content time {
 
 /* épinglement*/
 /* =========================================== */
-/* GRID 3 COLONNES - SOLUTION FONCTIONNELLE   */
+/* GRID 3×3 FONCTIONNELLE - SOLUTION SIMPLE   */
 /* =========================================== */
 
-/* Conteneur principal de la grille */
-.wp-block-query.three-columns-grid {
+/* 1. FORCER LA GRID 3×3 */
+.grid-3x3 {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 2rem !important;
     width: 100% !important;
 }
 
-/* Positionnement de l'article épinglé */
-.sticky-position {
-    grid-column: 3 !important; /* 3ème colonne */
-    grid-row: 3 !important;    /* 3ème ligne */
+/* 2. FORCER LES ARTICLES À PRENDRE TOUTE LA GRID */
+.grid-3x3 > .grid-3x3-template {
+    display: contents !important; /* IMPORTANT : force les enfants à être dans la grid */
 }
 
-/* Style pour toutes les cartes */
+/* 3. STYLE DES CARTES */
 .bento-card.article-card {
     position: relative !important;
     overflow: hidden !important;
@@ -1177,9 +1176,32 @@ ul.two-column-grid .card-content time {
     height: 100% !important;
     min-height: 300px !important;
     background: #f8fafc !important;
+    display: flex !important;
+    flex-direction: column !important;
 }
 
-/* Overlay pour lisibilité */
+/* 4. CONTENEUR INTERNE */
+.bento-card.article-card > div {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* 5. IMAGES */
+.wp-block-post-featured-image {
+    flex: 1 !important;
+    min-height: 200px !important;
+}
+
+.wp-block-post-featured-image img {
+    width: 100% !important;
+    height: 300px !important;
+    object-fit: cover !important;
+    border-radius: 18px !important;
+    display: block !important;
+}
+
+/* 6. OVERLAY POUR LISIBILITÉ */
 .card-overlay {
     position: absolute !important;
     bottom: 0 !important;
@@ -1191,24 +1213,15 @@ ul.two-column-grid .card-content time {
     border-radius: 18px !important;
 }
 
-/* Contenu */
+/* 7. CONTENU */
 .card-content {
     position: relative !important;
     z-index: 2 !important;
-    padding: 1.5rem !important;
 }
 
-/* Images */
-.fallback-image {
-    width: 100% !important;
-    height: 300px !important;
-    object-fit: cover !important;
-    border-radius: 18px !important;
+/* 8. BADGE ÉPINGLÉ - UNIQUEMENT SUR LE PREMIER ARTICLE */
+.grid-3x3 .bento-card.article-card:first-child .sticky-badge {
     display: block !important;
-}
-
-/* Badge Épinglé */
-.sticky-badge {
     position: absolute !important;
     top: 15px !important;
     left: 15px !important;
@@ -1223,13 +1236,13 @@ ul.two-column-grid .card-content time {
     letter-spacing: 0.5px !important;
 }
 
-/* Style spécial pour la carte épinglée */
-.sticky-card {
+/* 9. STYLE SPÉCIAL POUR L'ARTICLE ÉPINGLÉ (premier) */
+.grid-3x3 .bento-card.article-card:first-child {
     border: 2px solid #f59e0b !important;
     box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3) !important;
 }
 
-/* Titres */
+/* 10. TITRES */
 .wp-block-post-title a {
     color: white !important;
     text-decoration: none !important;
@@ -1242,30 +1255,21 @@ ul.two-column-grid .card-content time {
     text-decoration: underline !important;
 }
 
-/* Responsive */
+/* 11. RESPONSIVE */
 @media (max-width: 1024px) {
-    .wp-block-query.three-columns-grid {
+    .grid-3x3 {
         grid-template-columns: repeat(2, 1fr) !important;
-    }
-    
-    .sticky-position {
-        grid-column: 2 !important;
-        grid-row: 4 !important;
     }
 }
 
 @media (max-width: 768px) {
-    .wp-block-query.three-columns-grid {
+    .grid-3x3 {
         grid-template-columns: 1fr !important;
-    }
-    
-    .sticky-position {
-        grid-column: 1 !important;
-        grid-row: 9 !important;
     }
 }
 
-/* S'assurer que la grille est bien alignée */
-main .wp-block-group > .wp-block-query {
-    margin-bottom: 0 !important;
+/* 12. S'ASSURER QUE LA PAGINATION N'INTERFÈRE PAS */
+.grid-3x3 .wp-block-query-pagination {
+    grid-column: 1 / -1 !important;
+    margin-top: 2rem !important;
 }
