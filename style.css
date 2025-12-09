@@ -1152,43 +1152,34 @@ ul.two-column-grid .card-content time {
 
 /* épinglement*/
 /* Grille 3 colonnes */
-.home-articles-grid {
+.three-columns-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
-.three-columns-item {
-    display: block;
+/* Cartes */
+.bento-card {
+    position: relative;
 }
 
-.object-cover {
+/* Fallback + featured images */
+.fallback-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 18px;
 }
 
+/* Badge Épinglé */
 .sticky-badge {
     position: absolute;
     top: 12px;
     left: 12px;
     background: #f59e0b;
-    padding: 6px 10px;
-    border-radius: 6px;
     color: white;
-    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-weight: 700;
     z-index: 10;
-}
-
-
-/* Responsive mobile */
-@media (max-width: 900px) {
-    .three-columns-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (max-width: 600px) {
-    .three-columns-grid {
-        grid-template-columns: 1fr;
-    }
 }
