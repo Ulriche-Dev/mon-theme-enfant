@@ -1150,13 +1150,8 @@ ul.two-column-grid .card-content time {
 }
 
 
-
-
-
-
-
 /* épinglement*/
-/* Style pour l'indicateur sticky */
+/* Style pour l'indicateur sticky - ÉTOILE */
 .sticky-indicator {
     position: absolute;
     top: 15px;
@@ -1165,24 +1160,33 @@ ul.two-column-grid .card-content time {
 }
 
 .sticky-icon {
-    background-color: #f59e0b !important;
-    color: white !important;
-    width: 36px !important;
-    height: 36px !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 0 !important;
+    display: none; /* Caché par défaut */
 }
 
-.sticky-icon:not(:empty)::before {
-    content: "★";
+/* Affiche l'étoile UNIQUEMENT pour les articles épinglés */
+.sticky-post .sticky-icon {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #f59e0b;
+    color: white;
+    border-radius: 50%;
     font-size: 18px;
     font-weight: bold;
 }
 
-/* Cache l'indicateur pour les articles non-épinglés */
-.sticky-icon:empty {
-    display: none !important;
+.sticky-post .sticky-icon::before {
+    content: "★";
+}
+
+/* Optionnel : Style différent pour la carte épinglée */
+.sticky-post .article-card {
+    border: 2px solid #f59e0b;
+}
+
+/* Assure que l'article épinglé a une classe .sticky-post */
+article.sticky {
+    position: relative;
 }
