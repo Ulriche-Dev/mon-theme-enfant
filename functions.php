@@ -107,15 +107,24 @@ function abd_header_categories_nav() {
 
 function themechild_featured_or_default() {
     if (has_post_thumbnail()) {
-        return get_the_post_thumbnail(null, 'large', [
-            'class' => 'fallback-image',
-            'style' => 'border-radius:18px; width:100%; height:100%; object-fit:cover;'
-        ]);
+        $image_url = get_the_post_thumbnail_url(null, 'large');
+        return '<img src="' . esc_url($image_url) . '" 
+                class="fallback-image" 
+                style="border-radius:18px; width:100%; height:300px; object-fit:cover; display:block;" 
+                alt="' . esc_attr(get_the_title()) . '">';
     } else {
-        return '<img src="/wp-content/themes/mon-theme-enfant/assets/images/default-image.jpg"
-            class="fallback-image"
-            style="border-radius:18px; width:100%; height:100%; object-fit:cover;"
-            alt="Image par défaut">';
+        // Utilisez le chemin ABSOLU vers votre image
+        $default_image = get_stylesheet_directory_uri() . '/assets/images/default-image.jpg';
+        
+        // Image de secours si le fichier n'existe pas
+        if (!file_exists(get_stylesheet_directory() . '/assets/images/default-image.jpg')) {
+            $default_image = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+        }
+        
+        return '<img src="' . esc_url($default_image) . '" 
+                class="fallback-image" 
+                style="border-radius:18px; width:100%; height:300px; object-fit:cover; display:block;" 
+                alt="Image par défaut">';
     }
 }
 add_shortcode('featured_or_default', 'themechild_featured_or_default');
