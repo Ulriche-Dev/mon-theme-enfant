@@ -1,5 +1,5 @@
 /*
-Theme Name:   Mon Theme Enfant
+Thème Name:   Mon Theme Enfant
 Description:  Version Finale (Correction Fond Noir & Liens)
 */
 
@@ -348,7 +348,7 @@ header.wp-block-template-part,
 /* Grille 2 colonnes pour les catégories */
 .category-articles-grid ul.category-two-columns.wp-block-post-template {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 2rem !important;
     list-style: none !important;
     margin: 0 !important;
@@ -812,6 +812,7 @@ header.wp-block-template-part,
   }
 }
 
+<<<<<<< HEAD
 /* ===========================
    Footer patch 2024 
    =========================== */
@@ -974,6 +975,8 @@ a:focus {
   margin-bottom: 0.75rem; /* rapproche le h4 de la liste */
 }
 
+=======
+>>>>>>> a564f980b4e3800bf951cd380f5596dc3f4725f7
 
 
 
