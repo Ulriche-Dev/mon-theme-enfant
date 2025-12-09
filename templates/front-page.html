@@ -9,23 +9,18 @@
     <!-- /wp:heading -->
 
     <!-- ===================================================== -->
-    <!-- 9 ARTICLES : 1 ÉPINGLÉ + 8 RÉCENTS                    -->
+    <!-- 9 ARTICLES : 8 RÉCENTS + 1 ÉPINGLÉ À POSITION FIXE    -->
     <!-- ===================================================== -->
 
-    <!-- 1) ARTICLE ÉPINGLÉ -->
-    <!-- wp:query {"queryId":101,"query":{"perPage":1,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"only","inherit":false},"className":"three-columns-grid"} -->
+    <!-- 1) LES 8 ARTICLES RÉCENTS -->
+    <!-- wp:query {"queryId":102,"query":{"perPage":8,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false},"className":"three-columns-grid"} -->
     <div class="wp-block-query three-columns-grid">
-        <!-- wp:post-template {"className":"sticky-post"} -->
+        <!-- wp:post-template {"className":"regular-post"} -->
         
-        <!-- wp:group {"className":"bento-card article-card","layout":{"type":"flex","orientation":"vertical"},"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}}} -->
-        <div class="wp-block-group bento-card article-card">
-            
-            <!-- Badge Épinglé -->
-            <!-- wp:html -->
-            <div class="sticky-badge">📌 Épinglé</div>
-            <!-- /wp:html -->
-            
+        <!-- wp:group {"className":"bento-card article-card regular-card","layout":{"type":"flex","orientation":"vertical"},"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}}} -->
+        <div class="wp-block-group bento-card article-card regular-card">
             <div style="position:relative; height:100%; min-height:300px;">
+                
                 <!-- IMAGE AVEC FALLBACK -->
                 <!-- wp:shortcode -->
                 [featured_or_default]
@@ -46,15 +41,20 @@
     </div>
     <!-- /wp:query -->
 
-    <!-- 2) LES 8 ARTICLES RÉCENTS (hors épinglé) -->
-    <!-- wp:query {"queryId":102,"query":{"perPage":8,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false},"className":"three-columns-grid"} -->
-    <div class="wp-block-query three-columns-grid">
-        <!-- wp:post-template {"className":"regular-post"} -->
+    <!-- 2) ARTICLE ÉPINGLÉ (positionné en 9ème position) -->
+    <!-- wp:query {"queryId":101,"query":{"perPage":1,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"only","inherit":false},"className":"three-columns-grid sticky-position"} -->
+    <div class="wp-block-query three-columns-grid sticky-position">
+        <!-- wp:post-template {"className":"sticky-post"} -->
         
-        <!-- wp:group {"className":"bento-card article-card","layout":{"type":"flex","orientation":"vertical"},"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}}} -->
-        <div class="wp-block-group bento-card article-card">
+        <!-- wp:group {"className":"bento-card article-card sticky-card","layout":{"type":"flex","orientation":"vertical"},"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}}} -->
+        <div class="wp-block-group bento-card article-card sticky-card">
+            
+            <!-- Badge Épinglé -->
+            <!-- wp:html -->
+            <div class="sticky-badge">📌 Épinglé</div>
+            <!-- /wp:html -->
+            
             <div style="position:relative; height:100%; min-height:300px;">
-                
                 <!-- IMAGE AVEC FALLBACK -->
                 <!-- wp:shortcode -->
                 [featured_or_default]
