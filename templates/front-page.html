@@ -4,129 +4,109 @@
 <main class="wp-block-group">
 
     <!-- TITRE DE LA SECTION -->
-    <!-- wp:heading {"style":{"typography":{"fontSize":"2rem","fontWeight":"800"},"spacing":{"margin":{"bottom":"2rem"}}}} -->
     <h2 class="wp-block-heading" style="font-size:2rem;font-weight:800;margin-bottom:2rem">
         À la une <span style="color:#f59e0b">.</span>
     </h2>
-    <!-- /wp:heading -->
 
     <!-- ===================================================== -->
-    <!--    GRILLE UNIQUE 3×3 AVEC STICKY + 8 ARTICLES         -->
+    <!-- 1) GROUPE : ARTICLE ÉPINGLÉ + 8 ARTICLES RÉCENTS      -->
     <!-- ===================================================== -->
-    <div class="three-columns-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+    <div class="home-articles-grid wp-block-query">
 
-        <!-- ===================================================== -->
-        <!-- 1) ARTICLE ÉPINGLÉ EN PREMIER (manuellement placé)     -->
-        <!-- ===================================================== -->
+        <!-- ============================= -->
+        <!-- ARTICLE ÉPINGLÉ (1 seul)     -->
+        <!-- ============================= -->
         <!-- wp:query {"queryId":10,"query":{"perPage":1,"postType":"post","order":"desc","orderBy":"date","sticky":"only","inherit":false}} -->
         <div class="wp-block-query">
+
             <!-- wp:post-template -->
-                
-                <!-- wp:group {"className":"bento-card article-card"} -->
-                <div class="wp-block-group bento-card article-card" style="position:relative; min-height:300px;">
+            <div class="bento-card article-card three-columns-item">
 
-                    <!-- BADGE ÉPINGLÉ -->
-                    <!-- wp:html -->
-                    <div class="sticky-badge">📌 Épinglé</div>
-                    <!-- /wp:html -->
+                <!-- BADGE ÉPINGLÉ -->
+                <div class="sticky-badge">📌 Épinglé</div>
 
-                    <!-- IMAGE (avec fallback) -->
+                <div style="position:relative; height:100%; min-height:300px;">
+                    <!-- IMAGE AVEC FALLBACK -->
                     <!-- wp:html -->
-                    <div class="featured-wrapper">
-                        <?php if ( has_post_thumbnail() ) : ?>
-                            <a href="<?php the_permalink(); ?>">
-                                <?php the_post_thumbnail('large', ['class' => 'fallback-image']); ?>
-                            </a>
-                        <?php else : ?>
-                            <a href="<?php the_permalink(); ?>">
-                                <img src="/wp-content/themes/mon-theme-enfant/assets/images/default-image.jpg"
-                                     class="fallback-image"
-                                     alt="Image par défaut">
-                            </a>
-                        <?php endif; ?>
-                    </div>
+                    <?php 
+                    if ( has_post_thumbnail() ) {
+                        the_post_thumbnail( 'large', ['class' => 'object-cover', 'style' => 'border-radius:18px;width:100%;height:100%;object-fit:cover;'] );
+                    } else {
+                        echo '<img src="/wp-content/themes/mon-theme-enfant/assets/images/default-image.jpg" 
+                        class="object-cover" style="border-radius:18px;width:100%;height:100%;object-fit:cover;" />';
+                    }
+                    ?>
                     <!-- /wp:html -->
 
                     <div class="card-overlay"></div>
-
                     <div class="card-content">
-                        <!-- wp:post-title {"isLink":true,"level":3,"textColor":"white","style":{"typography":{"fontSize":"1.4rem","fontWeight":"700"}}} /-->
+                        <!-- wp:post-title {"isLink":true,"level":3,"textColor":"white"} /-->
                         <div style="color:#cbd5e1;font-size:13px;margin-top:8px;">
                             <!-- wp:post-date {"format":"j M Y"} /-->
                         </div>
                     </div>
-
                 </div>
-                <!-- /wp:group -->
 
+            </div>
             <!-- /wp:post-template -->
         </div>
         <!-- /wp:query -->
 
-
-        <!-- ===================================================== -->
-        <!-- 2) 8 ARTICLES RÉCENTS (hors épinglé)                  -->
-        <!-- ===================================================== -->
-
+        <!-- ============================= -->
+        <!-- 8 ARTICLES (hors épinglé)     -->
+        <!-- ============================= -->
         <!-- wp:query {"queryId":11,"query":{"perPage":8,"postType":"post","order":"desc","orderBy":"date","sticky":"exclude","inherit":false}} -->
         <div class="wp-block-query">
-            <!-- wp:post-template -->
-                
-                <!-- wp:group {"className":"bento-card article-card"} -->
-                <div class="wp-block-group bento-card article-card" style="position:relative; min-height:300px;">
 
-                    <!-- IMAGE (avec fallback) -->
+            <!-- wp:post-template -->
+            <div class="bento-card article-card three-columns-item">
+
+                <div style="position:relative; height:100%; min-height:300px;">
+
+                    <!-- IMAGE AVEC FALLBACK -->
                     <!-- wp:html -->
-                    <div class="featured-wrapper">
-                        <?php if ( has_post_thumbnail() ) : ?>
-                            <a href="<?php the_permalink(); ?>">
-                                <?php the_post_thumbnail('large', ['class' => 'fallback-image']); ?>
-                            </a>
-                        <?php else : ?>
-                            <a href="<?php the_permalink(); ?>">
-                                <img src="/wp-content/themes/mon-theme-enfant/assets/images/default-image.jpg"
-                                     class="fallback-image"
-                                     alt="Image par défaut">
-                            </a>
-                        <?php endif; ?>
-                    </div>
+                    <?php 
+                    if ( has_post_thumbnail() ) {
+                        the_post_thumbnail( 'large', ['class' => 'object-cover', 'style' => 'border-radius:18px;width:100%;height:100%;object-fit:cover;'] );
+                    } else {
+                        echo '<img src="/wp-content/themes/mon-theme-enfant/assets/images/default-image.jpg" 
+                        class="object-cover" style="border-radius:18px;width:100%;height:100%;object-fit:cover;" />';
+                    }
+                    ?>
                     <!-- /wp:html -->
 
                     <div class="card-overlay"></div>
-
                     <div class="card-content">
-                        <!-- wp:post-title {"isLink":true,"level":3,"textColor":"white","style":{"typography":{"fontSize":"1.4rem","fontWeight":"700"}}} /-->
+                        <!-- wp:post-title {"isLink":true,"level":3,"textColor":"white"} /-->
                         <div style="color:#cbd5e1;font-size:13px;margin-top:8px;">
                             <!-- wp:post-date {"format":"j M Y"} /-->
                         </div>
                     </div>
-
                 </div>
-                <!-- /wp:group -->
 
+            </div>
             <!-- /wp:post-template -->
+
         </div>
         <!-- /wp:query -->
 
     </div>
-    <!-- /GRID 3×3 -->
 
 </main>
 <!-- /wp:group -->
 
 
-
 <!-- ===================================================== -->
-<!-- SECTION KIDS (REMIS EN PLACE)                        -->
+<!-- SECTION KIDS                                           -->
 <!-- ===================================================== -->
-
-<!-- wp:group {"align":"full","className":"bg-kids-pattern","style":{"spacing":{"padding":{"top":"5rem","bottom":"5rem"},"margin":{"top":"6rem"}}}} -->
 <div class="wp-block-group alignfull bg-kids-pattern" style="padding-top:5rem;padding-bottom:5rem;margin-top:6rem;">
     <div class="wp-block-group" style="max-width:1000px;margin:auto;">
         <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2rem;">
             <div style="flex:1 1 400px;">
                 <span style="background:white;color:#9333ea;padding:4px 12px;border-radius:99px;font-weight:bold;font-size:14px;margin-bottom:1rem;display:inline-block;">ESPACE JUNIOR 🚀</span>
-                <h2 style="font-size:3rem;line-height:1.1;margin:1rem 0;color:#0f172a;">Comprendre le monde<br>par les chiffres.</h2>
+                <h2 style="font-size:3rem;line-height:1.1;margin:1rem 0;color:#0f172a;">
+                    Comprendre le monde<br>par les chiffres.
+                </h2>
             </div>
             <div>
                 <a href="/category/kids" class="btn-kids">Accéder à l'espace Kids</a>
@@ -134,22 +114,20 @@
         </div>
     </div>
 </div>
-<!-- /wp:group -->
 
 
 <!-- ===================================================== -->
-<!-- SECTION SERVICES AUX ENTREPRISES (REMIS EN PLACE)     -->
+<!-- SECTION SERVICES AUX ENTREPRISES                       -->
 <!-- ===================================================== -->
-<!-- wp:group {"className":"services-b2b-cta"} -->
 <div class="wp-block-group services-b2b-cta">
   <div class="services-desc">
     <h2>Services aux entreprises</h2>
-    <div>Analyse de données, ateliers, accompagnement sur mesure pour les acteurs africains du digital et de la data.</div>
+    <div>
+      Analyse de données, ateliers, accompagnement sur mesure pour les acteurs africains du digital et de la data.
+    </div>
   </div>
   <a href="/services/" class="services-b2b-btn">Découvrir</a>
 </div>
-<!-- /wp:group -->
-
 
 
 <!-- FOOTER -->
