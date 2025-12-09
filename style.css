@@ -2,6 +2,12 @@
 Thème Name:   Mon Theme Enfant
 Description:  Version Finale (Correction Fond Noir & Liens)
 */
+.home-articles-grid .three-column-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem !important;
+    width: 100% !important;
+}
 
 /* 1. VARIABLES */
 :root {
