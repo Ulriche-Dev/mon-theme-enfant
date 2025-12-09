@@ -1151,38 +1151,35 @@ ul.two-column-grid .card-content time {
 
 
 /* épinglement*/
-/* Style pour l'étoile épinglée */
-.sticky-star-indicator {
+/* Grille 3 colonnes */
+.three-columns-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Badge épinglé */
+.sticky-badge {
     position: absolute;
-    top: 15px;
-    left: 15px;
-    z-index: 10;
-    width: 36px;
-    height: 36px;
-    background-color: #f59e0b;
+    top: 12px;
+    left: 12px;
+    background: #f59e0b;
     color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: bold;
-    opacity: 0; /* Caché par défaut */
-    transition: opacity 0.3s ease;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 10;
 }
 
-/* Affiche l'étoile pour le PREMIER article seulement */
-.home-articles-grid .wp-block-query > .wp-block-post:first-child .sticky-star-indicator {
-    opacity: 1;
+/* Responsive mobile */
+@media (max-width: 900px) {
+    .three-columns-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
-
-/* Contenu de l'étoile */
-.sticky-star-indicator::before {
-    content: "★";
-}
-
-/* Option : Style spécial pour la carte épinglée */
-.home-articles-grid .wp-block-query > .wp-block-post:first-child .article-card {
-    border: 2px solid #f59e0b;
-    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+@media (max-width: 600px) {
+    .three-columns-grid {
+        grid-template-columns: 1fr;
+    }
 }
