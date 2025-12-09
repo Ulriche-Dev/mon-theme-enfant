@@ -104,73 +104,26 @@ function abd_header_categories_nav() {
 }
 
 
-
-// 1. Fonction pour gérer l'image par défaut via filtre
-function themechild_default_featured_image($html, $post_id, $post_thumbnail_id, $size, $attr) {
-    // Si pas d'image mise en avant
-    if (empty($html)) {
+function themechild_featured_or_default() {
+    if (has_post_thumbnail()) {
+        $image_url = get_the_post_thumbnail_url(null, 'large');
+        return '<img src="' . esc_url($image_url) . '" 
+                class="fallback-image" 
+                style="border-radius:18px; width:100%; height:300px; object-fit:cover; display:block;" 
+                alt="' . esc_attr(get_the_title()) . '">';
+    } else {
+        // Utilisez le chemin ABSOLU vers votre image
         $default_image = get_stylesheet_directory_uri() . '/assets/images/default-image.jpg';
         
-        // Vérifier si le fichier existe
+        // Image de secours si le fichier n'existe pas
         if (!file_exists(get_stylesheet_directory() . '/assets/images/default-image.jpg')) {
-            // Créer le dossier si nécessaire
-            wp_mkdir_p(get_stylesheet_directory() . '/assets/images/');
-            
-            // URL d'image par défaut de secours
             $default_image = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
         }
         
-        $html = sprintf(
-            '<img src="%s" class="wp-post-image default-image" alt="%s" style="width:100%%; height:300px; object-fit:cover; border-radius:18px;">',
-            esc_url($default_image),
-            esc_attr(get_the_title($post_id))
-        );
+        return '<img src="' . esc_url($default_image) . '" 
+                class="fallback-image" 
+                style="border-radius:18px; width:100%; height:300px; object-fit:cover; display:block;" 
+                alt="Image par défaut">';
     }
-    
-    return $html;
 }
-add_filter('post_thumbnail_html', 'themechild_default_featured_image', 10, 5);
-
-// 2. Forcer l'article épinglé à être en premier (UN SEUL)
-function themechild_sticky_post_first($posts) {
-    if (is_home() || is_front_page()) {
-        // Récupérer l'ID de l'article épinglé
-        $sticky_posts = get_option('sticky_posts');
-        
-        if (!empty($sticky_posts)) {
-            // Prendre seulement le PREMIER article épinglé
-            $sticky_id = $sticky_posts[0];
-            
-            // Chercher l'article épinglé dans les résultats
-            $sticky_post = null;
-            $other_posts = array();
-            
-            foreach ($posts as $post) {
-                if ($post->ID == $sticky_id) {
-                    $sticky_post = $post;
-                } else {
-                    $other_posts[] = $post;
-                }
-            }
-            
-            // Si on a trouvé l'article épinglé, le mettre en premier
-            if ($sticky_post) {
-                // Limiter à 9 articles maximum
-                $other_posts = array_slice($other_posts, 0, 8);
-                return array_merge(array($sticky_post), $other_posts);
-            }
-        }
-    }
-    
-    return $posts;
-}
-add_filter('the_posts', 'themechild_sticky_post_first');
-
-// 3. Ajouter une classe CSS pour l'article épinglé
-function themechild_sticky_post_class($classes, $class, $post_id) {
-    if (is_sticky($post_id)) {
-        $classes[] = 'sticky-post';
-    }
-    return $classes;
-}
-add_filter('post_class', 'themechild_sticky_post_class', 10, 3);
+add_shortcode('featured_or_default', 'themechild_featured_or_default');
