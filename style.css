@@ -1152,7 +1152,7 @@ ul.two-column-grid .card-content time {
 
 /* épinglement*/
 /* =========================================== */
-/* GRID 3×3 FONCTIONNELLE - SOLUTION SIMPLE   */
+/* GRID 3×3 FONCTIONNELLE - VERSION FINALE    */
 /* =========================================== */
 
 /* 1. FORCER LA GRID 3×3 */
@@ -1165,7 +1165,7 @@ ul.two-column-grid .card-content time {
 
 /* 2. FORCER LES ARTICLES À PRENDRE TOUTE LA GRID */
 .grid-3x3 > .grid-3x3-template {
-    display: contents !important; /* IMPORTANT : force les enfants à être dans la grid */
+    display: contents !important;
 }
 
 /* 3. STYLE DES CARTES */
@@ -1180,20 +1180,18 @@ ul.two-column-grid .card-content time {
     flex-direction: column !important;
 }
 
-/* 4. CONTENEUR INTERNE */
-.bento-card.article-card > div {
-    flex: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
+/* 4. CONTENEUR D'IMAGE */
+.article-image-container {
+    width: 100% !important;
+    height: 300px !important;
+    overflow: hidden !important;
+    border-radius: 18px !important;
 }
 
-/* 5. IMAGES */
-.wp-block-post-featured-image {
-    flex: 1 !important;
-    min-height: 200px !important;
-}
-
-.wp-block-post-featured-image img {
+/* 5. IMAGES (gère à la fois les images WordPress et le shortcode) */
+.article-featured-image,
+.wp-block-post-featured-image img,
+.fallback-image {
     width: 100% !important;
     height: 300px !important;
     object-fit: cover !important;
@@ -1201,7 +1199,13 @@ ul.two-column-grid .card-content time {
     display: block !important;
 }
 
-/* 6. OVERLAY POUR LISIBILITÉ */
+/* 6. IMAGE PAR DÉFAUT SPÉCIFIQUE */
+.default-image {
+    background-color: #e2e8f0 !important;
+    object-fit: cover !important;
+}
+
+/* 7. OVERLAY POUR LISIBILITÉ */
 .card-overlay {
     position: absolute !important;
     bottom: 0 !important;
@@ -1213,15 +1217,15 @@ ul.two-column-grid .card-content time {
     border-radius: 18px !important;
 }
 
-/* 7. CONTENU */
+/* 8. CONTENU */
 .card-content {
     position: relative !important;
     z-index: 2 !important;
 }
 
-/* 8. BADGE ÉPINGLÉ - UNIQUEMENT SUR LE PREMIER ARTICLE */
-.grid-3x3 .bento-card.article-card:first-child .sticky-badge {
-    display: block !important;
+/* 9. BADGE ÉPINGLÉ - UNIQUEMENT SUR LE PREMIER ARTICLE */
+.grid-3x3 .bento-card.article-card:first-child::before {
+    content: "📌 Épinglé" !important;
     position: absolute !important;
     top: 15px !important;
     left: 15px !important;
@@ -1236,13 +1240,13 @@ ul.two-column-grid .card-content time {
     letter-spacing: 0.5px !important;
 }
 
-/* 9. STYLE SPÉCIAL POUR L'ARTICLE ÉPINGLÉ (premier) */
+/* 10. STYLE SPÉCIAL POUR L'ARTICLE ÉPINGLÉ (premier) */
 .grid-3x3 .bento-card.article-card:first-child {
     border: 2px solid #f59e0b !important;
     box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3) !important;
 }
 
-/* 10. TITRES */
+/* 11. TITRES */
 .wp-block-post-title a {
     color: white !important;
     text-decoration: none !important;
@@ -1255,7 +1259,7 @@ ul.two-column-grid .card-content time {
     text-decoration: underline !important;
 }
 
-/* 11. RESPONSIVE */
+/* 12. RESPONSIVE */
 @media (max-width: 1024px) {
     .grid-3x3 {
         grid-template-columns: repeat(2, 1fr) !important;
@@ -1266,10 +1270,4 @@ ul.two-column-grid .card-content time {
     .grid-3x3 {
         grid-template-columns: 1fr !important;
     }
-}
-
-/* 12. S'ASSURER QUE LA PAGINATION N'INTERFÈRE PAS */
-.grid-3x3 .wp-block-query-pagination {
-    grid-column: 1 / -1 !important;
-    margin-top: 2rem !important;
 }

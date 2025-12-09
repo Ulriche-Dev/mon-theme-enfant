@@ -3,7 +3,7 @@
 <!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"2rem","bottom":"2rem"}}},"layout":{"type":"constrained","contentSize":"1280px"}} -->
 <main class="wp-block-group">
 
-    <!-- TITRE LA SECTION -->
+    <!-- TITRE -->
     <!-- wp:heading {"style":{"typography":{"fontSize":"2rem","fontWeight":"800"},"spacing":{"margin":{"bottom":"2rem"}}}} -->
     <h2 class="wp-block-heading" style="font-size:2rem;font-weight:800;margin-bottom:2rem">À la une <span style="color:#f59e0b">.</span></h2>
     <!-- /wp:heading -->
@@ -12,21 +12,21 @@
     <!-- 1 BLOC UNIQUE : 1 ÉPINGLÉ + 8 RÉCENTS DANS UNE GRID 3×3 -->
     <!-- ===================================================== -->
 
-    <!-- wp:query {"queryId":1,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"include","inherit":false},"className":"grid-3x3"} -->
+    <!-- wp:query {"queryId":1,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false},"className":"grid-3x3"} -->
     <div class="wp-block-query grid-3x3">
         <!-- wp:post-template {"className":"grid-3x3-template"} -->
         
         <!-- wp:group {"className":"bento-card article-card","layout":{"type":"flex","orientation":"vertical"},"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}}} -->
         <div class="wp-block-group bento-card article-card">
             
-            <!-- Badge Épinglé (visible uniquement pour le premier article) -->
-            <!-- wp:html -->
-            <div class="sticky-badge" style="display:none;">📌 Épinglé</div>
-            <!-- /wp:html -->
-            
+            <!-- CARTE D'ARTICLE NORMALE -->
             <div style="position:relative; height:100%; min-height:300px;">
-                <!-- IMAGE -->
-                <!-- wp:post-featured-image {"isLink":true,"style":{"border":{"radius":"18px"}},"className":"object-cover"} /-->
+                <!-- IMAGE AVEC FALLBACK -->
+                <!-- wp:html -->
+                <div class="article-image-container">
+                    [featured_or_default]
+                </div>
+                <!-- /wp:html -->
                 
                 <div class="card-overlay"></div>
                 <div class="card-content" style="position:absolute; bottom:0; left:0; right:0; padding:1.5rem;">
