@@ -12,21 +12,26 @@
     <!-- 1 BLOC UNIQUE : 1 ÉPINGLÉ + 8 RÉCENTS DANS UNE GRID 3×3 -->
     <!-- ===================================================== -->
 
-    <!-- wp:query {"queryId":1,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false},"className":"grid-3x3"} -->
+    <!-- wp:query {"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false},"className":"grid-3x3"} -->
     <div class="wp-block-query grid-3x3">
         <!-- wp:post-template {"className":"grid-3x3-template"} -->
         
         <!-- wp:group {"className":"bento-card article-card","layout":{"type":"flex","orientation":"vertical"},"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}}} -->
         <div class="wp-block-group bento-card article-card">
             
+            <!-- Badge Épinglé (visible seulement sur le premier via CSS) -->
+            <div class="sticky-badge" style="display:none;">📌 Épinglé</div>
+            
             <!-- CARTE D'ARTICLE NORMALE -->
             <div style="position:relative; height:100%; min-height:300px;">
-                <!-- IMAGE AVEC FALLBACK -->
-                <!-- wp:html -->
-                <div class="article-image-container">
-                    [featured_or_default]
-                </div>
-                <!-- /wp:html -->
+                <!-- IMAGE - Solution simplifiée -->
+                <!-- wp:post-featured-image {"isLink":true,"style":{"border":{"radius":"18px"}},"className":"featured-image"} /-->
+                
+                <!-- Image par défaut (cachée par défaut, visible via CSS si pas d'image) -->
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/default-image.jpg" 
+                     class="default-image" 
+                     style="display:none; width:100%; height:300px; object-fit:cover; border-radius:18px;" 
+                     alt="Image par défaut">
                 
                 <div class="card-overlay"></div>
                 <div class="card-content" style="position:absolute; bottom:0; left:0; right:0; padding:1.5rem;">
