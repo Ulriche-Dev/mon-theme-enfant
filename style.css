@@ -1151,42 +1151,38 @@ ul.two-column-grid .card-content time {
 
 
 /* épinglement*/
-/* Style pour l'indicateur sticky - ÉTOILE */
-.sticky-indicator {
+/* Style pour l'étoile épinglée */
+.sticky-star-indicator {
     position: absolute;
     top: 15px;
     left: 15px;
     z-index: 10;
-}
-
-.sticky-icon {
-    display: none; /* Caché par défaut */
-}
-
-/* Affiche l'étoile UNIQUEMENT pour les articles épinglés */
-.sticky-post .sticky-icon {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
     width: 36px;
     height: 36px;
     background-color: #f59e0b;
     color: white;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 18px;
     font-weight: bold;
+    opacity: 0; /* Caché par défaut */
+    transition: opacity 0.3s ease;
 }
 
-.sticky-post .sticky-icon::before {
+/* Affiche l'étoile pour le PREMIER article seulement */
+.home-articles-grid .wp-block-query > .wp-block-post:first-child .sticky-star-indicator {
+    opacity: 1;
+}
+
+/* Contenu de l'étoile */
+.sticky-star-indicator::before {
     content: "★";
 }
 
-/* Optionnel : Style différent pour la carte épinglée */
-.sticky-post .article-card {
+/* Option : Style spécial pour la carte épinglée */
+.home-articles-grid .wp-block-query > .wp-block-post:first-child .article-card {
     border: 2px solid #f59e0b;
-}
-
-/* Assure que l'article épinglé a une classe .sticky-post */
-article.sticky {
-    position: relative;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
 }
