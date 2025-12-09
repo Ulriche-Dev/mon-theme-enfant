@@ -347,7 +347,7 @@ header.wp-block-template-part,
 /* Grille 2 colonnes pour les catégories */
 .category-articles-grid ul.category-two-columns.wp-block-post-template {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 2rem !important;
     list-style: none !important;
     margin: 0 !important;
@@ -810,6 +810,17 @@ header.wp-block-template-part,
     gap: 1.1rem 0;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 /* =========================================== */
 /* SOLUTION SIMPLE QUI FONCTIONNE             */
