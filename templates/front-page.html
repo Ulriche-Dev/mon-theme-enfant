@@ -9,7 +9,8 @@
     <!-- /wp:heading -->
 
     <!-- GRILLE 2 COLONNES - TOUS LES ARTICLES -->
-    <!-- wp:query {"queryId":1,"query":{"perPage":8,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"className":"home-articles-grid"} -->    <div class="wp-block-query home-articles-grid">
+    <!-- wp:query {"queryId":1,"query":{"perPage":8,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"only","inherit":false},"className":"home-articles-grid"} -->
+    <div class="wp-block-query home-articles-grid">
         <!-- wp:post-template {"className":"two-column-grid"} -->
             <!-- wp:group {"className":"bento-card article-card","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}}} -->
             <div class="wp-block-group bento-card article-card">
@@ -41,14 +42,14 @@
 
 <!-- SECTION KIDS -->
 <!-- wp:group {"align":"full","className":"bg-kids-pattern","style":{"spacing":{"padding":{"top":"5rem","bottom":"5rem"},"margin":{"top":"6rem"}}}} -->
-<div class="wp-block-group alignfull bg-kids-pattern" style="padding-top:5rem;padding-bottom:5rem; margin-top:6rem;">
+<div class="wp-block-group alignfull bg-kids-pattern" style="padding-top:5rem;padding-bottom:5rem;margin-top:6rem;">
     <!-- wp:group {"layout":{"contentSize":"1000px"}} -->
     <div class="wp-block-group">
         <!-- wp:html -->
-        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem;">
-            <div style="flex: 1 1 400px;">
-                <span style="background:white; color:#9333ea; padding:4px 12px; border-radius:99px; font-weight:bold; font-size:14px; margin-bottom:1rem; display:inline-block;">ESPACE JUNIOR 🚀</span>
-                <h2 style="font-size: 3rem; line-height: 1.1; margin: 1rem 0; color: #0f172a;">Comprendre le monde<br>par les chiffres.</h2>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2rem;">
+            <div style="flex:1 1 400px;">
+                <span style="background:white;color:#9333ea;padding:4px 12px;border-radius:99px;font-weight:bold;font-size:14px;margin-bottom:1rem;display:inline-block;">ESPACE JUNIOR 🚀</span>
+                <h2 style="font-size:3rem;line-height:1.1;margin:1rem 0;color:#0f172a;">Comprendre le monde<br>par les chiffres.</h2>
             </div>
             <div>
                 <a href="/category/kids" class="btn-kids">Accéder à l'espace Kids</a>
@@ -73,9 +74,6 @@
     Découvrir
   </a>
 </div>
-
-
-<!-- Place ici ton footer -->
-<!-- /wp:group --> 
+<!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer","theme":"mon-theme-enfant","tagName":"footer"} /-->
