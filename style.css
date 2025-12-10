@@ -477,6 +477,7 @@ header.wp-block-template-part,
     margin: 0 !important;
 }
 
+
 /* Responsive : 1 colonne sur mobile */
 @media (max-width: 768px) {
     .category-articles-grid ul.category-two-columns.wp-block-post-template {
@@ -1162,3 +1163,9 @@ ul.two-column-grid .card-content time {
   color: #f59e0b; /* couleur accent orange */
   margin-left: 4px;
 }
+
+.wp-block-post-terms {
+    display: inline !important;
+}
+
+
