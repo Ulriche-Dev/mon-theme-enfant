@@ -158,8 +158,14 @@ header.wp-block-group.abd-header {
 .bg-kids-pattern {
     background-color: var(--wp--preset--color--kids-bg) !important;
     background-image: radial-gradient(#fff 2px, transparent 2px);
+    background-size: 15px 15px;
+    /* 
     background-size: 20px 20px;
-    margin-top: 4rem; 
+    margin-top: 4rem;  
+    */
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    margin-top: 2rem !important;
 }
 .btn-kids { background-color: var(--wp--preset--color--kids-primary) !important; color: white !important; padding: 1rem 2rem; border-radius: 12px; font-weight: bold; text-decoration: none; display: inline-block; }
 
