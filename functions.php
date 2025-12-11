@@ -1,6 +1,7 @@
 <?php
 /**
  * Charge le style du thème enfant
+ * toto
  */
 add_action( 'wp_enqueue_scripts', 'mon_theme_enfant_styles' );
 function mon_theme_enfant_styles() {
