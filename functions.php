@@ -104,9 +104,6 @@ function abd_header_categories_nav() {
     }
 }
 
-/**
- * Shortcode: Image mise en avant ou image par défaut
- */
 function themechild_featured_or_default() {
 
     if (has_post_thumbnail()) {
