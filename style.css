@@ -306,8 +306,8 @@ header.wp-block-template-part,
     color: #f59e0b !important;
 }
 
-/* Date en gris */
-.category-articles-grid .card-content .wp-block-post-date,
+/* Date et catégorie en gris */
+.category-articles-grid .card-content .wp-block-post-date .post-terms, 
 .category-articles-grid .card-content time {
     color: #64748b !important;
     font-size: 13px !important;
@@ -469,8 +469,8 @@ header.wp-block-template-part,
     color: #f59e0b !important;
 }
 
-/* Date en gris */
-.category-articles-grid .card-content .wp-block-post-date,
+/* Date et catégorie en gris */
+.category-articles-grid .card-content .wp-block-post-date .post-terms,
 .category-articles-grid .card-content time {
     color: #64748b !important;
     font-size: 13px !important;

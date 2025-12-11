@@ -83,7 +83,7 @@ function abd_header_categories_nav() {
 
     // 🔸 Bouton "Tout voir"
     $is_home = is_front_page() || is_home();
-    echo '<li><a href="' . esc_url(home_url('/')) . '" class="abd-nav-link' . ($is_home ? ' active' : '') . '">Tout voir</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/')) . '" class="abd-nav-link' . ($is_home && !is_category() ? ' active' : '') . '">Tout voir</a></li>';
 
     // 🔸 Autres catégories
     $categories = [
@@ -92,7 +92,6 @@ function abd_header_categories_nav() {
         'sport'    => 'Sport',
         'ecologie' => 'Écologie',
         'societe'  => 'Société',
-        'shorts'   => 'Shorts',
     ];
 
     foreach ($categories as $slug => $label) {
